@@ -22,6 +22,12 @@ body {
     width: 75px;
 }
 
+.box {
+    border-radius: 25px;
+    padding: 10px;
+    /* credits to  https://www.w3schools.com/css/css3_shadows_box.asp for the dropshadow effect*/
+    box-shadow: 0.3em 0.3em 0.3em 0.1em #202020;
+}
 .playerscore-box {
     width: 11%;
     height: 100px;
