@@ -8,3 +8,26 @@
     margin-top: 10px;
     width: 75px;
 }
+
+.playerscore-box {
+    width: 11%;
+    height: 100px;
+    float: left;
+    margin-left: 4vw;
+    background-color: rgb(180, 180, 180);
+}
+
+.game-box {
+ background-color: rgb(180, 180, 180);
+ width: 60%;
+ height: 80vh;
+ margin: 0 auto;
+}
+
+.highscore-box {
+    width: 11%;
+    height: 80vh;
+    float: right;
+    margin-right: 8vh;
+    background-color: rgb(180, 180, 180);
+}
