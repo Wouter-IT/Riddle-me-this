@@ -3,13 +3,11 @@
     padding: 0;
     border: none;
 }
-
 body {
     background-color: #36213E;
     font-family: "Lato", sans-serif;
     font-size: 120%;
 }
-
 .heading {
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
@@ -18,13 +16,12 @@ body {
     color: #e6ebe0;
 }
 .logo {
-    margin-top: 10px;
+    margin-top: 20px;
     width: 75px;
 }
-
 .box {
     border-radius: 25px;
-    padding: 10px;
+    padding: 15px;
     /* credits to  https://www.w3schools.com/css/css3_shadows_box.asp for the dropshadow effect*/
     box-shadow: 0.3em 0.3em 0.3em 0.1em #202020;
 }
@@ -35,14 +32,21 @@ body {
     margin-left: 4vw;
     background-color: #e6ebe0;
 }
-
 .game-box {
- background-color: #e6ebe0;
- width: 60%;
- height: 80vh;
- margin: 0 auto;
+    background-color: #e6ebe0;
+    width: 60%;
+    height: 80vh;
+    margin: 0 auto;
+    text-align: center;
 }
-
+#box-header {
+    font-size: 2em;
+    padding-top: 5vh;
+}
+#box-text {
+    padding: 2vh 5vw;
+    font-size: 1.4em;
+} 
 .leaderboard-box {
     width: 11%;
     height: 80vh;
