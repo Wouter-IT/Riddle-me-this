@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- google fonts link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato&display=swap" rel="stylesheet">
     <!-- add favicon -->
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'/>
     <!-- add link to css stylesheet -->
@@ -19,10 +19,32 @@
      <h1 class="heading"> 
         RIDDLE ME THIS!
     </h1>
-    <div class="playerscore-box"></div>
-    <div class="highscore-box"></div>
+    <div class="playerscore-box">
+        <h2 class="box-header">Player Score</h2>
+    </div>
+    <div class="leaderboard-box">
+        <h2 class="box-header">Leaderboards</h2>
+    </div>
     <div class="game-box">
-        <div class="greeting-area"></div>
+        <div class="greeting-area">
+            <h2 id="box-header">Welcome to Riddle me This!</h1>
+                <p id="box-text">Welcome to Riddle me This, a quiz where you have to solve 5 riddles as fast as possible in order to score points. 
+                    The riddles are selected from a large pool at random everytime you start the game giving you a new and fun experience each time! 
+                    A timer will keep track of how long you take to answer each riddle. The faster you find the correct answer, the 
+                    more point you will reiceive. Beware though that the timer will start running the moment you hit play! After solving the riddle a 
+                    "proceed" button wil appear that can bring you to the next riddle. The timer will once again start when you click the button.
+                    <br>
+                    <br>
+                    You can keep track of your current score and the amount of right & wrong answers on the left side of the screen. There will also be a forfeit button to give up on your current run.
+                    Got stuck on a riddle but want to finish the run? There is a reveal answer button right above the timer on the bottom left of the game screen. You won't earn any points for that riddle though!
+                    <br>
+                    <br> 
+                    Each question also provides you with a clue of the type of answer that is required, which can either be a word, a sentence, or a number.
+                    <br>
+                    <br>
+                    Do you believe you got what it takes to conquer the leaderboards? 
+                </p>
+        </div>
         <div class="riddle-area"></div>
         <div class="input-area"></div>
     </div>
