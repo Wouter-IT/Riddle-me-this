@@ -19,6 +19,11 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
  function createPlayer() {
-    let playerName = document.getElementById('uname-input').value;
-    alert('The username is ' + playerName);
+    var player = {
+        name: 'new',
+        score: 0,
+        wrongAnswers: 0
+    }   
+    player.name = document.getElementById('uname-input').value;
+    alert('The username is ' + player.name + ', their score was ' + player.score + ', and the amount of wrong answers was ' + player.wrongAnswers);
 }
