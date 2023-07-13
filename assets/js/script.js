@@ -25,5 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
         wrongAnswers: 0
     }   
     player.name = document.getElementById('uname-input').value;
+    document.getElementById('pbox').style.visibility = 'visible';
     alert('The username is ' + player.name + ', their score was ' + player.score + ', and the amount of wrong answers was ' + player.wrongAnswers);
 }
