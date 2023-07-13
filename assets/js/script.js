@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "username") { //Collects the data-type value of the button that is clicked and checks if it it the confirm button.
                 createPlayer();
-                // runGame();
+                runGame();
             } else if (this.getAttribute("data-type") === "forfeit") { // if it's not submit it's one of the game modes, "this" takes the value of the button clicked (and it's data-type) and notifies the user accordingly
                 // returnMenu();
             }
@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", function() {
     player.name = document.getElementById('uname-input').value;
     document.getElementById('pbox').style.visibility = 'visible';
     currentUsername = document.getElementById('crt-uname');
-    currentUsername.innerHTML = '' + player.name;
-    alert('The username is ' + player.name + ', their score was ' + player.score + ', and the amount of wrong answers was ' + player.wrongAnswers);
+    currentUsername.innerHTML = player.name;
+}
+
+function runGame() {
+    document.getElementById('greeting-area').style.display = 'none';
+    document.getElementById('username-input-area').style.display = 'none';
 }
