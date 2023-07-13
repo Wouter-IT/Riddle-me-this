@@ -26,5 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }   
     player.name = document.getElementById('uname-input').value;
     document.getElementById('pbox').style.visibility = 'visible';
+    currentUsername = document.getElementById('crt-uname');
+    currentUsername.innerHTML = '' + player.name;
     alert('The username is ' + player.name + ', their score was ' + player.score + ', and the amount of wrong answers was ' + player.wrongAnswers);
 }

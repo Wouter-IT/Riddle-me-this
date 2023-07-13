@@ -27,11 +27,18 @@ body {
 }
 .playerscore-box {
     width: 11%;
-    height: 100px;
+    height: 200px;
     float: left;
     margin-left: 4vw;
     background-color: #e6ebe0;
     visibility: hidden;
+}
+.player-data {
+    margin-top: 3px;
+    margin-left: 3px;
+}
+.player-data h3 {
+    margin-top: 10px;
 }
 .game-box {
     background-color: #e6ebe0;
