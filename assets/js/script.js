@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         })
     }
+    document.getElementById('uname-input').addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            createPlayer();
+            runGame();
+        }
+    })    
 })
 
  function createPlayer() {
