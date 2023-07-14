@@ -76,7 +76,7 @@ body {
     position: absolute;
         right: 1vw;
 }
-.riddle-area{
+.game-area{
     display: none;
 }
 #username-input-area {

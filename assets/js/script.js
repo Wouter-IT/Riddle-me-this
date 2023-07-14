@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "username") { //Collects the data-type value of the button that is clicked and checks if it it the confirm button.
                 createPlayer();
-                runGame();
+                startGame();
             } else if (this.getAttribute("data-type") === "forfeit") { // if it's not submit it's one of the game modes, "this" takes the value of the button clicked (and it's data-type) and notifies the user accordingly
                 // returnMenu();
             }
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('uname-input').addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             createPlayer();
-            runGame();
+            startGame();
         }
     })    
 })
@@ -36,10 +36,17 @@ document.addEventListener("DOMContentLoaded", function() {
     currentUsername.innerHTML = player.name;
 }
 
-function runGame() {
+function startGame() {
     document.getElementById('greeting-area').style.display = 'none';
     document.getElementById('username-input-area').style.display = 'none';
+    let revealGame = document.getElementsByClassName('game-area');
+    for(let i = 0; i < revealGame.length; i++) {
+        revealGame[i].style.display = 'block';
+    }
+    // moet game & answer area visible maken
+    getRiddle();
 }
+// get riddle moet: new riddle pakken
 
 
 let riddle = [{

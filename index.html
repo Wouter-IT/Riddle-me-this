@@ -51,9 +51,9 @@
                 </p>
         </div>
         <div class="game-area">
-            <div id="riddle-image"></div>
-            <div id="riddle-text"></div>
-            <div id="riddle-hint"></div>
+            <div id="riddle-image"><p>riddle image</p></div>
+            <div id="riddle-text"><p>riddle text</p></div>
+            <div id="riddle-hint"><p>riddle hint</p></div>
         </div>
         <div id="username-input-area">
             <label id='uname-label' for="uname-input">Username:</label>
@@ -61,8 +61,11 @@
             <br>
             <button data-type="username" id="start-btn">Start!</button>
         </div>
-        <div id="guess-area">
-            <button data-type="username" id="start-btn">Start!</button>
+        <div class="game-area" id="answer-area">
+            <label id="answer-label" for="answer-input">Your answer:</label>
+            <input id="answer-input" type="text" required>
+            <br>
+            <button data-type="answer" id="answer-btn">Submit Answer</button>
         </div>
     </div>
     <!-- link to script -->
