@@ -50,11 +50,18 @@
                     Do you believe you got what it takes to conquer the leaderboards? 
                 </p>
         </div>
-        <div class="riddle-area"></div>
+        <div class="game-area">
+            <div id="riddle-image"></div>
+            <div id="riddle-text"></div>
+            <div id="riddle-hint"></div>
+        </div>
         <div id="username-input-area">
             <label id='uname-label' for="uname-input">Username:</label>
             <input id="uname-input" type="text" maxlength="10" required>
             <br>
+            <button data-type="username" id="start-btn">Start!</button>
+        </div>
+        <div id="guess-area">
             <button data-type="username" id="start-btn">Start!</button>
         </div>
     </div>

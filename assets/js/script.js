@@ -39,9 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
 function runGame() {
     document.getElementById('greeting-area').style.display = 'none';
     document.getElementById('username-input-area').style.display = 'none';
-    alert(riddle[0].text);
-    alert(riddle[0].answer);
-    alert(riddle[0].hint);
 }
 
 
