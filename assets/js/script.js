@@ -2,6 +2,9 @@
 // Get the button elements  and add event listeners to hem
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
+    
+    // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
+    document.getElementById('uname-input').focus();
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
@@ -16,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         })
     }
+    // listens for the user to press "Enter" to submit their username as opposed to clicking the button.
     document.getElementById('uname-input').addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             createPlayer();
@@ -24,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })    
 })
 
+// creates a new player for a game round.
  function createPlayer() {
     var player = {
         name: 'new',
@@ -36,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
     currentUsername.innerHTML = player.name;
 }
 
+// Clears greeting messages and instruction from screen and displays html elements needed to play the game. 
+// Then generates 5 random numbers which are used to slect the riddles and gets the 1st of the 5 riddles. 
 function startGame() {
     document.getElementById('greeting-area').style.display = 'none';
     document.getElementById('username-input-area').style.display = 'none';
@@ -43,11 +50,53 @@ function startGame() {
     for(let i = 0; i < revealGame.length; i++) {
         revealGame[i].style.display = 'block';
     }
-    // moet game & answer area visible maken
-    getRiddle();
+    // Calls a function to "select" 5 random numbers
+    let rdmRiddleArray = [];
+    rdmRiddleArray = riddleSelection();
+    alert(rdmRiddleArray[0]);
+    alert(rdmRiddleArray[1]);
+    alert(rdmRiddleArray[2]);
+    alert(rdmRiddleArray[3]);
+    alert(rdmRiddleArray[4]);
 }
-// get riddle moet: new riddle pakken
 
+// reuses code from the Lovemath project to generate 5 random numbers between 0 and 49 without repeating any number
+function riddleSelection() {
+    let rdmNrsArray = [];
+    let num1 = Math.floor(Math.random() * 50);
+    rdmNrsArray.push(num1);
+
+    let num2 = Math.floor(Math.random() * 50);
+    num2 = checkDouble(num2, rdmNrsArray);
+    rdmNrsArray.push(num2);
+    
+    let num3 = Math.floor(Math.random() * 50);
+    num2 = checkDouble(num3, rdmNrsArray);
+    rdmNrsArray.push(num3);
+
+    let num4 = Math.floor(Math.random() * 50);
+    num2 = checkDouble(num4, rdmNrsArray);
+    rdmNrsArray.push(num4);
+
+    let num5 = Math.floor(Math.random() * 50);
+    num2 = checkDouble(num5, rdmNrsArray);
+    rdmNrsArray.push(num5);
+
+    return rdmNrsArray;
+}
+// Checks for doubles numbers in the rdmNrsArray
+function checkDouble(rdmNum, numArray) {
+    let containsDouble = numArray.includes(rdmNum);
+    while (containsDouble) {
+        ++rdmNum;
+        if (rdmNum === 50) {
+            rdmNum - 50;
+        }
+    }
+    return rdmNum;
+}
+
+// get riddle moet: new riddle pakken
 
 let riddle = [{
     id: 1,
