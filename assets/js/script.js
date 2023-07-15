@@ -11,11 +11,13 @@ document.addEventListener("DOMContentLoaded", function() {
             if (this.getAttribute("data-type") === "username") { //Collects the data-type value of the button that is clicked and checks if it it the confirm button.
                 createPlayer();
                 playGame();
-            } else if (this.getAttribute("data-type") === "forfeit") { // if it's not submit it's one of the game modes, "this" takes the value of the button clicked (and it's data-type) and notifies the user accordingly
-                // returnMenu();
-            }
-            else {
-                // nextGame();
+            } else if (this.getAttribute("data-type") === "answer") { // if it's not submit it's one of the game modes, "this" takes the value of the button clicked (and it's data-type) and notifies the user accordingly
+                // checkAnswer();
+            } else if (this.getAttribute("data-type") === "skip"){
+                //showAnswer(); 
+                //nextRiddle(); < name??
+            } else if (this.getAttribute("data-type") === "next") {
+                // something to get new riddle with number form random number array
             }
         })
     }
@@ -28,7 +30,9 @@ document.addEventListener("DOMContentLoaded", function() {
     })    
 })
 
-// creates a new player for a game round.
+/**
+ * Creates the player account object including name, score, amount of wrong answers
+ */
  function createPlayer() {
     var player = {
         name: 'new',
@@ -41,8 +45,11 @@ document.addEventListener("DOMContentLoaded", function() {
     currentUsername.innerHTML = player.name;
 }
 
-// Clears greeting messages and instruction from screen and displays html elements needed to play the game. 
-// Then generates 5 random numbers which are used to slect the riddles and gets the 1st of the 5 riddles. 
+
+/**
+ * Prepares game area by clearing greeting messages and instruction. 
+ * Generates 5 random numbers which are used to slect the riddles and gets the 1st of the 5 riddles.
+ */ 
 function playGame() {
     document.getElementById('greeting-area').style.display = 'none';
     document.getElementById('username-input-area').style.display = 'none';
@@ -53,7 +60,8 @@ function playGame() {
     // Calls a function to "select" 5 random numbers
     let rdmRiddleArray = [];
     rdmRiddleArray = riddleSelection();
-    getRiddle(rdmRiddleArray[0]);
+    riddleAnswer = getRiddle(rdmRiddleArray[0]);
+     
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('answer-input').focus();    
 }
@@ -104,6 +112,7 @@ function getRiddle(riddleNr) {
     replaceHint = document.getElementById('riddle-hint');
     replaceHint.innerHTML = selected.hint;
     let answer = selected.answer;
+    return answer;
 }
 
 
