@@ -12,12 +12,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 createPlayer();
                 playGame();
             } else if (this.getAttribute("data-type") === "answer") { // if it's not submit it's one of the game modes, "this" takes the value of the button clicked (and it's data-type) and notifies the user accordingly
-                // checkAnswer();
+                // checkAnswer(inputAnswer, riddleAnswer);
             } else if (this.getAttribute("data-type") === "skip"){
                 //showAnswer(); 
                 //nextRiddle(); < name??
             } else if (this.getAttribute("data-type") === "next") {
                 // something to get new riddle with number form random number array
+            } else {
+                //forfeitGame()
             }
         })
     }
@@ -60,13 +62,16 @@ function playGame() {
     // Calls a function to "select" 5 random numbers
     let rdmRiddleArray = [];
     rdmRiddleArray = riddleSelection();
-    riddleAnswer = getRiddle(rdmRiddleArray[0]);
+    var riddleAnswer = getRiddle(rdmRiddleArray[0]);
      
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('answer-input').focus();    
 }
 
-// reuses code from the Lovemath project to generate 5 random numbers between 0 and 49 without repeating any number
+// reuses code from the Lovemath project 
+/**
+ * Generate 5 random numbers between 0 and 49 without repeating any number
+ */
 function riddleSelection() {
     let rdmNrsArray = [];
     let num1 = Math.floor(Math.random() * 50);
@@ -90,7 +95,10 @@ function riddleSelection() {
 
     return rdmNrsArray;
 }
-// Checks for doubles numbers in the rdmNrsArray
+
+/**
+ * Checks for doubles numbers in the rdmNrsArray
+ */
 function checkDouble(rdmNum, numArray) {
     let containsDouble = numArray.includes(rdmNum);
     while (containsDouble) {
@@ -115,7 +123,7 @@ function getRiddle(riddleNr) {
     return answer;
 }
 
-
+// Array of objects that stores all riddles
 let riddle = [{
     id: 0,
     image: '',
