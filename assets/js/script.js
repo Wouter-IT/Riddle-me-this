@@ -97,10 +97,11 @@ function getRiddle(riddleNr) {
     let number = riddleNr;
     alert(number);
     let selected = riddle[number];
-    alert(selected);
-// document.getElementById('riddle-imgage').innerHTML = selector.image;
-    document.getElementById('riddle-text').innerHTML = selector.text;
-    document.getElementById('riddle-hint').innerHTML = selector.hint;
+// document.getElementById('riddle-imgage').innerHTML = selected.image; <-- gewoon html met link naar de afbeelding <img src="link" alt="alt-text">
+    replaceText = document.getElementById('riddle-text');
+    replaceText.innerHTML = selected.text;
+    replaceHint = document.getElementById('riddle-hint');
+    replaceHint.innerHTML = selected.hint;
     let answer = selected.answer;
 }
 
