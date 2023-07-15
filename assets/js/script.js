@@ -53,7 +53,9 @@ function playGame() {
     // Calls a function to "select" 5 random numbers
     let rdmRiddleArray = [];
     rdmRiddleArray = riddleSelection();
-    getRiddle(rdmRiddleArray[0]);    
+    getRiddle(rdmRiddleArray[0]);
+    // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
+    document.getElementById('answer-input').focus();    
 }
 
 // reuses code from the Lovemath project to generate 5 random numbers between 0 and 49 without repeating any number
@@ -92,10 +94,9 @@ function checkDouble(rdmNum, numArray) {
     return rdmNum;
 }
 
-// get riddle moet: new riddle pakken
+// gets a riddle from the riddles array and isplays it on screen.
 function getRiddle(riddleNr) {
     let number = riddleNr;
-    alert(number);
     let selected = riddle[number];
 // document.getElementById('riddle-imgage').innerHTML = selected.image; <-- gewoon html met link naar de afbeelding <img src="link" alt="alt-text">
     replaceText = document.getElementById('riddle-text');
