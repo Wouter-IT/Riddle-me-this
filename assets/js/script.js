@@ -165,5 +165,245 @@ let riddle = [{
     text: 'What gets wet while drying?',
     answer: 'towel',
     hint: 'a word'
+}, {
+    id: 10,
+    image: '',
+    text: 'What is able to go up a chimney when down but unable to go down a chimney when up?',
+    answer: 'umbrella',
+    hint: 'a word'
+}, {
+    id: 11,
+    image: '',
+    text: 'What English word retains the same pronunciation, even after you take away four of its five letters?',
+    answer: 'queue',
+    hint: 'a word'
+}, {
+    id: 12,
+    image: '',
+    text: 'What jumps when walking and sits when standing?',
+    answer: 'kangaroo',
+    hint: 'a word'
+}, {
+    id: 13,
+    image: '',
+    text: 'If you eat me, my sender will eat you. What am I?',
+    answer: 'fishhook',
+    hint: 'a word'
+}, {
+    id: 14,
+    image: '',
+    text: 'I can shave every day but my beard never changes. What am I?',
+    answer: 'barber',
+    hint: 'a word'
+}, {
+    id: 15,
+    image: '',
+    text: 'Three different doctors said that Paul is their brother yet Paul claims he has no brothers. Who is lying?',
+    answer: 'nobody',
+    hint: 'one word'
+}, {
+    id: 16,
+    image: '',
+    text: 'I exemplify a rare case where today comes before yesterday. What am I?',
+    answer: 'dictionary',
+    hint: 'a word'
+}, {
+    id: 17,
+    image: '',
+    text: 'Which English word is the odd one out: Stun, Ton, Evil, Letter, Mood, Bad, Strap, Snap, and Straw?',
+    answer: 'letter',
+    hint: 'a word'
+}, {
+    id: 18,
+    image: '',
+    text: 'I am born tall and grow short with age. What could I be?',
+    answer: 'pencil',
+    hint: 'a word'
+}, {
+    id: 19,
+    image: '',
+    text: 'The person who makes it and the person who buys it have no use for it and the person who uses it never knows they are using it. What is it?',
+    answer: 'coffin',
+    hint: 'a word'
+}, {
+    id: 20,
+    image: '',
+    text: 'My buddies and I were inseparable mates until one by one we were split. My teacher then gave me a smack on the head so off in the corner I sit. What am I?',
+    answer: 'staple',
+    hint: 'a word'
+}, {
+    id: 21,
+    image: '',
+    text: 'The more these are taken, the more they are left behind. What are they?',
+    answer: 'footstep',
+    hint: 'a word'
+}, {
+    id: 22,
+    image: '',
+    text: 'I eat to live and drink to die. What could I be?',
+    answer: 'fire',
+    hint: 'a word'
+}, {
+    id: 23,
+    image: '',
+    text: 'I promise, I offend, I direct, and I fight. What am I?',
+    answer: 'hand',
+    hint: 'a word'
+}, {
+    id: 24,
+    image: '',
+    text: 'I am a five-letter word. I sound the same when you remove my first letter. I sound the same when you remove my third letter. I sound the same when my last letter is removed and I sound the same when all three are removed. What word am I?',
+    answer: 'empty',
+    hint: 'a word'
+}, {
+    id: 25,
+    image: '',
+    text: 'What is caught but never thrown?',
+    answer: 'cold',
+    hint: 'a word'
+}, {
+    id: 26,
+    image: '',
+    text: 'When I am needed by you, you throw me away, but when I’m of no use, you take me back. What am I?',
+    answer: 'anchor',
+    hint: 'a word'
+}, {
+    id: 27,
+    image: '',
+    text: 'I fly without wings and cry without eyes. Wherever I lead, darkness follows. What could I be?',
+    answer: 'cloud',
+    hint: 'a word'
+}, {
+    id: 28,
+    image: '',
+    text: 'What is it that no one wants but no one wants to lose?',
+    answer: 'lawsuit',
+    hint: 'a word'
+}, {
+    id: 29,
+    image: '',
+    text: 'I am a five-letter word and people eat me. If you remove the first letter I become an energy form. If you remove the first two letters, I am needed to live. Scramble the last three letters and I am a drink. What word am I?',
+    answer: 'wheat',
+    hint: 'a word'
+}, {
+    id: 30,
+    image: '',
+    text: 'We hurt without moving and poison without touching. We bear truth and lies but are no judged by size. What are we?',
+    answer: 'word',
+    hint: 'a word'
+}, {
+    id: 31,
+    image: '',
+    text: 'WMy first is in chocolate but no in ham. My second is in cake and also in jam. My third at tea-time is easily found. Altogether, this is a friend who is often around. What is it?',
+    answer: 'cat',
+    hint: 'a word'
+}, {
+    id: 32,
+    image: '',
+    text: 'What word becomes shorter when you add two letters to it?',
+    answer: 'short',
+    hint: 'a word'
+}, {
+    id: 33,
+    image: '',
+    text: 'What word in the English language has three consecutive double letters?',
+    answer: 'Bookkeeper',
+    hint: 'a word'
+}, {
+    id: 34,
+    image: '',
+    text: 'A man is asked what his daughters look like. He answers, “they are all blondes, but two, all brunettes, but two, and all redheads, but two.” How many daughters does he have?',
+    answer: 3,
+    hint: 'a number'
+}, {
+    id: 35,
+    image: '',
+    text: 'You always find me in the past, I can be created in the present, but the future can never taint me. What am I?',
+    answer: 'history',
+    hint: 'a word'
+}, {
+    id: 36,
+    image: '',
+    text: 'If you multiply me by any other number, the answer will always remain the same. What number am I?',
+    answer: 0,
+    hint: 'a number'
+}, {
+    id: 37,
+    image: '',
+    text: 'If there are three cups of sugar and you take one away, how many do you have?',
+    answer: 1,
+    hint: 'a number'
+}, {
+    id: 38,
+    image: '',
+    text: 'Two hens can lay two eggs in two minutes. If this is the maximum speed possible, what is the total number of hens needed to get 500 eggs in 500 minutes?',
+    answer: 2,
+    hint: 'a number'
+}, {
+    id: 39,
+    image: '',
+    text: 'Paul the Polar Bear had a birthday party and had each guest bringing five fish. A penguin stole two fish but there were still 198 left. How many people came to the party?',
+    answer: 40,
+    hint: 'a number'
+}, {
+    id: 40,
+    image: '',
+    text: 'Ten copycats were sitting on a boat when one jumped out. How many were left?',
+    answer: 0,
+    hint: 'a number'
+}, {
+    id: 41,
+    image: '',
+    text: 'If Tom and his father are put together, they weigh 280 pounds. Tom his dad weighs three times as much as he does. How much pounds does Tom weigh?',
+    answer: 70,
+    hint: 'a number'
+}, {
+    id: 42,
+    image: '',
+    text: 'I am a three-digit number. My tens digit is six more than my ones digit. My hundreds digit is eight less than my tens digit. What number am I?',
+    answer: 193,
+    hint: 'a number'
+}, {
+    id: 43,
+    image: '',
+    text: 'When shipping something, Tom can place ten small boxes or eight large boxes into a carton. A total of 96 boxes were sent in one shipment and the number of small boxes was less than large boxes. How many cartons did he ship?',
+    answer: 11,
+    hint: 'a number'
+}, {
+    id: 44,
+    image: '',
+    text: 'Seven brothers were born two years apart. The youngest brother is seven. How old is the oldest brother?',
+    answer: 19,
+    hint: 'a number'
+}, {
+    id: 45,
+    image: '',
+    text: 'Which letter of the alphabet has the most water?',
+    answer: 'c',
+    hint: 'a word'
+}, {
+    id: 46,
+    image: '',
+    text: 'What is so fragile that saying its name breaks it?',
+    answer: 'silence',
+    hint: 'a word'
+}, {
+    id: 47,
+    image: '',
+    text: 'What type of cheese is made backward?',
+    answer: 'edam',
+    hint: 'a word'
+}, {
+    id: 48,
+    image: '',
+    text: 'When asked how old she was, Suzie replied, “In two years I will be twice as old as I was five years ago.” How old is she?',
+    answer: 12,
+    hint: 'a number'
+}, {
+    id: 49,
+    image: '',
+    text: 'What is it that when you take away the whole, you still have some leftover?',
+    answer: 'wholesome',
+    hint: 'a word'
 }];
 
