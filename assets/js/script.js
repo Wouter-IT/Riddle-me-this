@@ -189,8 +189,6 @@ function forfeitGame() {
         }
         document.getElementById('pbox').style.visibility = 'hidden';
         resetPlayer();
-        // document.getElementById('crt-score').innerText = player.score;
-        // document.getElementById('crt-wa').innerText = player.wrongAnswers;
     }
 }
 //Resets player
@@ -203,10 +201,12 @@ function resetPlayer() {
     console.log(player.score);
     console.log(player.wrongAnswers);
 }
+//Pushes player data to leaderboard. Then updates the leaderboard.
 function pushToLeaderboard() {
     leaderboardArray.push(player);
     console.log("I've pushed player into array.");
-    leaderboardArray.sort((a,b) => (a.color > b.color) ? 1 : (a.color === b.color) ? ((a.size > b.size) ? 1 : -1) : -1 );
+    // Code to sort leaderboard Array from https://dev.to/madanlal/how-to-sort-array-of-object-using-object-keys-in-javascript-58f1
+    leaderboardArray.sort((a,b) => (a.score > b.score) ? 1 : (a.score === b.score) ? ((a.wrongAnswers > b.wrongAnswers) ? 1 : -1) : -1 );
     alert(JSON.stringify(leaderboardArray));
 }
 
