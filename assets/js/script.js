@@ -42,7 +42,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // listens for the user to press "Enter" to submit their answer as opposed to clicking the button.
     document.getElementById('answer-input').addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
-            checkAnswer();
+            if (document.getElementById('answer-btn').disabled === true) {
+                alert('You have already answered correctly! Please proceed to the next riddle by clicking the "Next" button.');
+            } else {
+                checkAnswer();
+            }
         }
     });        
 });
@@ -96,15 +100,20 @@ function checkAnswer() {
             alert("this answer is correct! (string)");
             incrScore();
             // let playerScore = document.getElementById('crt-score').innertHTML;
+            let answerButton = document.getElementById('answer-btn');
+            answerButton.disabled = true;
         } else {
             alert("this answer is incorrect! (string)");
             incrWrongAnswers();
         }
     } else {
-        userAnswer.parseInt();
-        if (userAnswer === riddleAnswer) {
-        alert("this answer is correct! (number)");
-        incrScore();
+        let parsed = parseInt(userAnswer);
+        if (parsed === riddleAnswer) {
+            alert("this answer is correct! (number)");
+            incrScore();
+            //Code from https://www.scaler.com/topics/javascript-disable-button/
+            let answerButton = document.getElementById('answer-btn');
+            answerButton.disabled = true;
         } else {
             alert("This answer is incorrect! (number)");
             incrWrongAnswers();
