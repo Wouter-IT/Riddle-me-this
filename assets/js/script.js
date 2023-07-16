@@ -94,12 +94,15 @@ function checkAnswer() {
             // let playerScore = document.getElementById('crt-score').innertHTML;
         } else {
             alert("this answer is incorrect! (string)");
+            incrWrongAnswers();
         }
     } else {
-        if (userAnswer == riddleAnswer) {
+        userAnswer.parseInt();
+        if (userAnswer === riddleAnswer) {
         alert("this answer is correct! (number)");
         } else {
             alert("This answer is incorrect! (number)");
+            incrWrongAnswers();
         }
     }
 }
@@ -113,31 +116,37 @@ function checkInputType(userInputAnswer) {
     }
 }
 
+function incrWrongAnswers() {
+    let oldWrongAnswers = parseInt(document.getElementById('crt-wa').innerText);
+    document.getElementById('crt-wa').innerText = ++oldWrongAnswers;
+}
+
 // reuses code from the Lovemath project 
 /**
  * Generate 5 random numbers between 0 and 49 without repeating any number
  */
 function riddleSelection() {
     let rdmNrsArray = [];
-    let num1 = Math.floor(Math.random() * 50);
+    let num1 = Math.floor(Math.random() * 49);
     rdmNrsArray.push(num1);
 
-    let num2 = Math.floor(Math.random() * 50);
+    let num2 = Math.floor(Math.random() * 49);
     num2 = checkDouble(num2, rdmNrsArray);
     rdmNrsArray.push(num2);
     
-    let num3 = Math.floor(Math.random() * 50);
+    let num3 = Math.floor(Math.random() * 49);
     num2 = checkDouble(num3, rdmNrsArray);
     rdmNrsArray.push(num3);
 
-    let num4 = Math.floor(Math.random() * 50);
+    let num4 = Math.floor(Math.random() * 49);
     num2 = checkDouble(num4, rdmNrsArray);
     rdmNrsArray.push(num4);
 
-    let num5 = Math.floor(Math.random() * 50);
+    let num5 = Math.floor(Math.random() * 49);
     num2 = checkDouble(num5, rdmNrsArray);
     rdmNrsArray.push(num5);
 
+    alert(JSON.stringify(rdmNrsArray))
     return rdmNrsArray;
 }
 
@@ -147,9 +156,9 @@ function riddleSelection() {
 function checkDouble(rdmNum, numArray) {
     let containsDouble = numArray.includes(rdmNum);
     while (containsDouble) {
-        ++rdmNum;
-        if (rdmNum === 50) {
-            rdmNum - 50;
+        rdmNum++;
+        if (rdmNum > 49) {
+            rdmNum = 0;
         }
     }
     return rdmNum;
