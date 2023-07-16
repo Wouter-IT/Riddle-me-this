@@ -2,7 +2,6 @@
 // Get the button elements  and add event listeners to hem
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
-    var riddleAnswer;
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('uname-input').focus();
 
@@ -95,6 +94,10 @@ function playGame() {
 function checkAnswer() {
     let userAnswer = document.getElementById('answer-input').value;
     let inputString = checkInputType(userAnswer);
+    // Next 2 codelines from https://bobbyhadz.com/blog/javascript-clear-input-field-after-submit
+    // Clears the input field.
+    let clearInput = document.getElementById('answer-input');
+    clearInput.value = "";
     if (inputString) {
         if (userAnswer.toLowerCase() === riddleAnswer) {
             alert("this answer is correct! (string)");
@@ -107,6 +110,7 @@ function checkAnswer() {
             incrWrongAnswers();
         }
     } else {
+        // Codeline below created from theory on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
         let parsed = parseInt(userAnswer);
         if (parsed === riddleAnswer) {
             alert("this answer is correct! (number)");
