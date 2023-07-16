@@ -38,7 +38,13 @@ document.addEventListener("DOMContentLoaded", function() {
             createPlayer();
             playGame();
         }
-    })    
+    })
+    // listens for the user to press "Enter" to submit their answer as opposed to clicking the button.
+    document.getElementById('answer-input').addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    })        
 })
 
 /**
