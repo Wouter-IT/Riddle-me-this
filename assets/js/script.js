@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('uname-input').focus();
-
     for (let button of buttons) {
         button.addEventListener("click", function() {
             switch (this.getAttribute("data-type")) {
@@ -73,8 +72,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });        
 });
-
-
 /**
  * Creates the player account object including name, score, amount of wrong answers
  */
