@@ -5,18 +5,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('uname-input').focus();
 
-    // function validateForm() {
-    //     var input = document.getElementById('uname-input').value;
-    //     if (input === "") {
-    //       alert("Name must be filled out");
-    //       return false;
-    //     }
-    //   }
-
     for (let button of buttons) {
         button.addEventListener("click", function() {
             switch (this.getAttribute("data-type")) {
                 case "username":
+                    // Check input code based off snd example snippet on https://www.w3schools.com/howto/howto_js_validation_empty_input.asp
                     let input = document.getElementById('uname-input').value;
                     if (input === "") {
                         alert("Name must be filled out");
