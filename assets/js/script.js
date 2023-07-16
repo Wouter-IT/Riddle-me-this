@@ -5,14 +5,34 @@ document.addEventListener("DOMContentLoaded", function() {
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('uname-input').focus();
 
+    // function validateForm() {
+    //     var input = document.getElementById('uname-input').value;
+    //     if (input === "") {
+    //       alert("Name must be filled out");
+    //       return false;
+    //     }
+    //   }
+
     for (let button of buttons) {
         button.addEventListener("click", function() {
             switch (this.getAttribute("data-type")) {
                 case "username":
+                    let input = document.getElementById('uname-input').value;
+                    if (input === "") {
+                        alert("Name must be filled out");
+                        document.getElementById('uname-input').focus();
+                        break;
+                    }    
                     createPlayer();
                     playGame();
                     break;
                 case "answer":
+                    let answerInput = document.getElementById('answer-input').value;
+                    if (answerInput === "") {
+                        alert("An answer must be filled in");
+                        document.getElementById('answer-input').focus();
+                        break;
+                    }  
                     checkAnswer();
                     break;
                 case "skip":
@@ -34,21 +54,33 @@ document.addEventListener("DOMContentLoaded", function() {
     // listens for the user to press "Enter" to submit their username as opposed to clicking the button.
     document.getElementById('uname-input').addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
-            createPlayer();
-            playGame();
+                let input = document.getElementById('uname-input').value;
+                    if (input === "") {
+                        alert("Name must be filled out");
+                    } else {
+                        createPlayer();
+                        playGame();
+                    }   
         }
     });
     // listens for the user to press "Enter" to submit their answer as opposed to clicking the button.
     document.getElementById('answer-input').addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
-            if (document.getElementById('answer-btn').disabled === true) {
-                alert('You have already answered correctly! Please proceed to the next riddle by clicking the "Next" button.');
+            let answerInput = document.getElementById('answer-input').value;
+            if (answerInput === "") {
+                alert("An answer must be filled in");
+                document.getElementById('answer-input').focus();
             } else {
-                checkAnswer();
-            }
+                if (document.getElementById('answer-btn').disabled === true) {
+                    alert('You have already answered correctly! Please proceed to the next riddle by clicking the "Next" button.');
+                } else {
+                    checkAnswer();
+                };
+            };
         }
     });        
 });
+
 
 /**
  * Creates the player account object including name, score, amount of wrong answers
@@ -63,9 +95,11 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('pbox').style.visibility = 'visible';
     currentUsername = document.getElementById('crt-uname');
     currentUsername.innerHTML = player.name;
+    // Clears user input for when they return to this screen
+    let clearInput = document.getElementById('uname-input');
+    clearInput.value = "";
     console.log("1 - Player created");
 }
-
 
 /**
  * Prepares game area by clearing greeting messages and instruction. 
@@ -88,8 +122,6 @@ function playGame() {
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('answer-input').focus();    
 }
-
-
 
 function checkAnswer() {
     let userAnswer = document.getElementById('answer-input').value;
@@ -160,6 +192,7 @@ function forfeitGame() {
         document.getElementById('pbox').style.visibility = 'hidden';
     }
 }
+
 // reuses code from the Love maths project. 
 /**
  * Generate 5 random numbers between 0 and 49 without repeating any number
@@ -219,6 +252,11 @@ function getRiddle(riddleNr) {
     console.log("5 - Riddle retreived for play");
     return answer;
 }
+// sets a target for the first players
+let leaderboardArray = [{
+    username: 'Beat me!',
+    score: 1500
+}]
 
 // Array of objects that stores all riddles
 let riddle = [{
