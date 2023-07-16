@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('uname-input').focus();
+    var player = new Player('', 0, 0)
     for (let button of buttons) {
         button.addEventListener("click", function() {
             switch (this.getAttribute("data-type")) {
@@ -76,11 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
  * Creates the player account object including name, score, amount of wrong answers
  */
  function createPlayer() {
-    var player = {
-        name: 'new',
-        score: 0,
-        wrongAnswers: 0
-    };   
+    player = new Player('', 0, 0);
     player.name = document.getElementById('uname-input').value;
     document.getElementById('pbox').style.visibility = 'visible';
     currentUsername = document.getElementById('crt-uname');
@@ -90,6 +87,12 @@ document.addEventListener("DOMContentLoaded", function() {
     clearInput.value = "";
     console.log("1 - Player created");
 }
+
+function Player(username, startScore, newWrongAnswers) {
+    this.name = username;
+    this.score = startScore;
+    this.wrongAnswers = newWrongAnswers;
+  }
 
 /**
  * Prepares game area by clearing greeting messages and instruction. 
@@ -161,18 +164,23 @@ function checkInputType(userInputAnswer) {
 function incrScore() {
     let oldScore = parseInt(document.getElementById('crt-score').innerText);
     document.getElementById('crt-score').innerText = (oldScore + 500);
+    player.score = oldScore + 500;
+    console.log(player.score);
 }
 
 // reuses code from Love Maths project.
 function incrWrongAnswers() {
     let oldWrongAnswers = parseInt(document.getElementById('crt-wa').innerText);
     document.getElementById('crt-wa').innerText = ++oldWrongAnswers;
+    player.wrongAnswers = oldWrongAnswers;
+    console.log(player.wrongAnswers);
 }
 
 function forfeitGame() {
     //Code on confirmation pop-up comes from https://www.tutorialsteacher.com/javascript/display-popup-message-in-javascript
     forfeitConf = window.confirm(["Are you sure you want to forfeit your run? Your score will still be posted to the leaderboard."]);
     if (forfeitConf) {
+        pushToLeaderboard();
         document.getElementById('greeting-area').style.display = 'block';
         document.getElementById('username-input-area').style.display = 'block';
         let revealGame = document.getElementsByClassName('game-area');
@@ -180,7 +188,26 @@ function forfeitGame() {
             revealGame[i].style.display = 'none';
         }
         document.getElementById('pbox').style.visibility = 'hidden';
+        resetPlayer();
+        // document.getElementById('crt-score').innerText = player.score;
+        // document.getElementById('crt-wa').innerText = player.wrongAnswers;
     }
+}
+//Resets player
+function resetPlayer() {
+    console.log('resetting player')
+    document.getElementById('crt-score').innerText = '0';
+    document.getElementById('crt-wa').innerText = '0';
+    let answerButton = document.getElementById('answer-btn');
+    answerButton.disabled = false;
+    console.log(player.score);
+    console.log(player.wrongAnswers);
+}
+function pushToLeaderboard() {
+    leaderboardArray.push(player);
+    console.log("I've pushed player into array.");
+    leaderboardArray.sort((a,b) => (a.color > b.color) ? 1 : (a.color === b.color) ? ((a.size > b.size) ? 1 : -1) : -1 );
+    alert(JSON.stringify(leaderboardArray));
 }
 
 // reuses code from the Love maths project. 
@@ -242,11 +269,15 @@ function getRiddle(riddleNr) {
     console.log("5 - Riddle retreived for play");
     return answer;
 }
-// sets a target for the first players
-let leaderboardArray = [{
-    username: 'Beat me!',
-    score: 1500
-}]
+// Player object
+// var player = {
+//     name: 'new',
+//     score: 0,
+//     wrongAnswers: 0
+// };   
+
+//Creates the array for the leaderboard that can be called upon by functions.
+var leaderboardArray = new Array(10);
 
 // Array of objects that stores all riddles
 let riddle = [{
@@ -289,7 +320,7 @@ let riddle = [{
     id: 6,
     image: '',
     text: 'What has ten letters and starts with gas?',
-    answer: 'Automobile',
+    answer: 'automobile',
     hint: 'a word'
 }, {
     id: 7,
