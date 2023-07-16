@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     // something to get new riddle with number form random number array
                     break;
                 case "forfeit":
-                    // forfeitGame();    
+                    forfeitGame();    
                 break;
                 default:
                     alert(`Unimplemented button ${this.getAttribute("data-type")}`);
@@ -147,6 +147,19 @@ function incrWrongAnswers() {
     document.getElementById('crt-wa').innerText = ++oldWrongAnswers;
 }
 
+function forfeitGame() {
+    //Code on confirmation pop-up comes from https://www.tutorialsteacher.com/javascript/display-popup-message-in-javascript
+    forfeitConf = window.confirm(["Are you sure you want to forfeit your run? Your score will still be posted to the leaderboard."]);
+    if (forfeitConf) {
+        document.getElementById('greeting-area').style.display = 'block';
+        document.getElementById('username-input-area').style.display = 'block';
+        let revealGame = document.getElementsByClassName('game-area');
+        for(let i = 0; i < revealGame.length; i++) {
+            revealGame[i].style.display = 'none';
+        }
+        document.getElementById('pbox').style.visibility = 'hidden';
+    }
+}
 // reuses code from the Love maths project. 
 /**
  * Generate 5 random numbers between 0 and 49 without repeating any number
