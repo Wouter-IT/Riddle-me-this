@@ -2,24 +2,33 @@
 // Get the button elements  and add event listeners to hem
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
-    
+    var riddleAnswer;
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('uname-input').focus();
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
-            if (this.getAttribute("data-type") === "username") { //Collects the data-type value of the button that is clicked and checks if it it the confirm button.
-                createPlayer();
-                playGame();
-            } else if (this.getAttribute("data-type") === "answer") { // if it's not submit it's one of the game modes, "this" takes the value of the button clicked (and it's data-type) and notifies the user accordingly
-                // checkAnswer(inputAnswer, riddleAnswer);
-            } else if (this.getAttribute("data-type") === "skip"){
-                //showAnswer(); 
-                //nextRiddle(); < name??
-            } else if (this.getAttribute("data-type") === "next") {
-                // something to get new riddle with number form random number array
-            } else {
-                //forfeitGame()
+            switch (this.getAttribute("data-type")) {
+                case "username":
+                    createPlayer();
+                    playGame();
+                    break;
+                case "answer":
+                    checkAnswer();
+                    break;
+                case "skip":
+                    //showAnswer(); 
+                    //nextRiddle(); < name??
+                    break;
+                case "next":
+                    // something to get new riddle with number form random number array
+                    break;
+                case "forfeit":
+                // forfeitGame();    
+                break;
+                default:
+                    alert(`Unimplemented button ${this.getAttribute("data-type")}`);
+                    throw(`Unimplemented button ${this.getAttribute("data-type")}". Aborting!"`);
             }
         })
     }
@@ -59,13 +68,43 @@ function playGame() {
     for(let i = 0; i < revealGame.length; i++) {
         revealGame[i].style.display = 'block';
     }
-    // Calls a function to "select" 5 random numbers
+    // Calls a function to "select" 5 random numbers and displays riddle on screen
     let rdmRiddleArray = [];
     rdmRiddleArray = riddleSelection();
-    var riddleAnswer = getRiddle(rdmRiddleArray[0]);
-     
+    riddleAnswer = getRiddle(rdmRiddleArray[0]); //<- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx wordt nog niet gebruikt
+    alert(riddleAnswer);
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('answer-input').focus();    
+}
+
+
+
+function checkAnswer() {
+    let userAnswer = document.getElementById('answer-input').value;
+    let inputString = checkInputType(userAnswer);
+    if (inputString) {
+        if (userAnswer.toLowerCase() === riddleAnswer) {
+            alert("this answer is correct! (string)");
+            // let playerScore = document.getElementById('crt-score').innertHTML;
+        } else {
+            alert("this answer is incorrect! (string)");
+        }
+    } else {
+        if (userAnswer == riddleAnswer) {
+        alert("this answer is correct! (number)");
+        } else {
+            alert("This answer is incorrect! (number)");
+        }
+    }
+}
+
+function checkInputType(userInputAnswer) {
+    let isNan = parseInt(userInputAnswer);
+    if (isNaN(isNan)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // reuses code from the Lovemath project 
@@ -110,7 +149,7 @@ function checkDouble(rdmNum, numArray) {
     return rdmNum;
 }
 
-// gets a riddle from the riddles array and isplays it on screen.
+// gets a riddle from the riddles array and displays it on screen.
 function getRiddle(riddleNr) {
     let number = riddleNr;
     let selected = riddle[number];
