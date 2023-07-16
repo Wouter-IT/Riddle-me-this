@@ -24,13 +24,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     // something to get new riddle with number form random number array
                     break;
                 case "forfeit":
-                // forfeitGame();    
+                    // forfeitGame();    
                 break;
                 default:
                     alert(`Unimplemented button ${this.getAttribute("data-type")}`);
                     throw(`Unimplemented button ${this.getAttribute("data-type")}". Aborting!"`);
             }
-        })
+        });
     }
     // listens for the user to press "Enter" to submit their username as opposed to clicking the button.
     document.getElementById('uname-input').addEventListener("keydown", function(event) {
@@ -38,14 +38,14 @@ document.addEventListener("DOMContentLoaded", function() {
             createPlayer();
             playGame();
         }
-    })
+    });
     // listens for the user to press "Enter" to submit their answer as opposed to clicking the button.
     document.getElementById('answer-input').addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             checkAnswer();
         }
-    })        
-})
+    });        
+});
 
 /**
  * Creates the player account object including name, score, amount of wrong answers
@@ -55,11 +55,12 @@ document.addEventListener("DOMContentLoaded", function() {
         name: 'new',
         score: 0,
         wrongAnswers: 0
-    }   
+    };   
     player.name = document.getElementById('uname-input').value;
     document.getElementById('pbox').style.visibility = 'visible';
     currentUsername = document.getElementById('crt-uname');
     currentUsername.innerHTML = player.name;
+    console.log("1 - Player created");
 }
 
 
@@ -74,6 +75,7 @@ function playGame() {
     for(let i = 0; i < revealGame.length; i++) {
         revealGame[i].style.display = 'block';
     }
+    console.log("2 - Game started");
     // Calls a function to "select" 5 random numbers and displays riddle on screen
     let rdmRiddleArray = [];
     rdmRiddleArray = riddleSelection();
@@ -127,26 +129,26 @@ function incrWrongAnswers() {
  */
 function riddleSelection() {
     let rdmNrsArray = [];
-    let num1 = Math.floor(Math.random() * 49);
+    let num1 = Math.floor(Math.random() * 50);
     rdmNrsArray.push(num1);
 
-    let num2 = Math.floor(Math.random() * 49);
+    let num2 = Math.floor(Math.random() * 50);
     num2 = checkDouble(num2, rdmNrsArray);
     rdmNrsArray.push(num2);
     
-    let num3 = Math.floor(Math.random() * 49);
+    let num3 = Math.floor(Math.random() * 50);
     num2 = checkDouble(num3, rdmNrsArray);
     rdmNrsArray.push(num3);
 
-    let num4 = Math.floor(Math.random() * 49);
+    let num4 = Math.floor(Math.random() * 50);
     num2 = checkDouble(num4, rdmNrsArray);
     rdmNrsArray.push(num4);
 
-    let num5 = Math.floor(Math.random() * 49);
+    let num5 = Math.floor(Math.random() * 50);
     num2 = checkDouble(num5, rdmNrsArray);
     rdmNrsArray.push(num5);
 
-    alert(JSON.stringify(rdmNrsArray))
+    alert(JSON.stringify(rdmNrsArray));
     return rdmNrsArray;
 }
 
@@ -154,11 +156,14 @@ function riddleSelection() {
  * Checks for doubles numbers in the rdmNrsArray
  */
 function checkDouble(rdmNum, numArray) {
+    console.log("4 - Check for double started");
     let containsDouble = numArray.includes(rdmNum);
     while (containsDouble) {
         rdmNum++;
-        if (rdmNum > 49) {
+        if (rdmNum >= 50) {
             rdmNum = 0;
+        } else {
+            containsDouble = numArray.includes(rdmNum);
         }
     }
     return rdmNum;
@@ -174,6 +179,7 @@ function getRiddle(riddleNr) {
     replaceHint = document.getElementById('riddle-hint');
     replaceHint.innerHTML = selected.hint;
     let answer = selected.answer;
+    console.log("5 - Riddle retreived for play");
     return answer;
 }
 
