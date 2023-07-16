@@ -79,7 +79,8 @@ function playGame() {
     // Calls a function to "select" 5 random numbers and displays riddle on screen
     let rdmRiddleArray = [];
     rdmRiddleArray = riddleSelection();
-    riddleAnswer = getRiddle(rdmRiddleArray[0]); //<- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx wordt nog niet gebruikt
+    //Gets a new riddle a puts it on screen. Then stores the answer value of the riddle object in the riddleAnswer variable which is declared at the top of this document.
+    riddleAnswer = getRiddle(rdmRiddleArray[0]);
     alert(riddleAnswer);
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('answer-input').focus();    
@@ -93,6 +94,7 @@ function checkAnswer() {
     if (inputString) {
         if (userAnswer.toLowerCase() === riddleAnswer) {
             alert("this answer is correct! (string)");
+            incrScore();
             // let playerScore = document.getElementById('crt-score').innertHTML;
         } else {
             alert("this answer is incorrect! (string)");
@@ -102,6 +104,7 @@ function checkAnswer() {
         userAnswer.parseInt();
         if (userAnswer === riddleAnswer) {
         alert("this answer is correct! (number)");
+        incrScore();
         } else {
             alert("This answer is incorrect! (number)");
             incrWrongAnswers();
@@ -109,6 +112,7 @@ function checkAnswer() {
     }
 }
 
+// Checks if code is actually a number or string so it can be compared with the answer accordingly.
 function checkInputType(userInputAnswer) {
     let isNan = parseInt(userInputAnswer);
     if (isNaN(isNan)) {
@@ -118,12 +122,19 @@ function checkInputType(userInputAnswer) {
     }
 }
 
+// reuses code from Love Maths project.
+function incrScore() {
+    let oldScore = parseInt(document.getElementById('crt-score').innerText);
+    document.getElementById('crt-score').innerText = (oldScore + 500);
+}
+
+// reuses code from Love Maths project.
 function incrWrongAnswers() {
     let oldWrongAnswers = parseInt(document.getElementById('crt-wa').innerText);
     document.getElementById('crt-wa').innerText = ++oldWrongAnswers;
 }
 
-// reuses code from the Lovemath project 
+// reuses code from the Love maths project. 
 /**
  * Generate 5 random numbers between 0 and 49 without repeating any number
  */
