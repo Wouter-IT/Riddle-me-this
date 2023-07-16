@@ -1,12 +1,12 @@
 //Waits for the DOM to finish loading before running the game
 // Get the button elements  and add event listeners to hem
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('uname-input').focus();
     var player = new Player('', 0, 0)
     for (let button of buttons) {
-        button.addEventListener("click", function() {
+        button.addEventListener("click", function () {
             switch (this.getAttribute("data-type")) {
                 case "username":
                     // Check input code based off snd example snippet on https://www.w3schools.com/howto/howto_js_validation_empty_input.asp
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         alert("Name must be filled out");
                         document.getElementById('uname-input').focus();
                         break;
-                    }    
+                    }
                     createPlayer();
                     playGame();
                     break;
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         alert("An answer must be filled in");
                         document.getElementById('answer-input').focus();
                         break;
-                    }  
+                    }
                     checkAnswer();
                     break;
                 case "skip":
@@ -36,28 +36,28 @@ document.addEventListener("DOMContentLoaded", function() {
                     // something to get new riddle with number form random number array
                     break;
                 case "forfeit":
-                    forfeitGame();    
-                break;
+                    forfeitGame();
+                    break;
                 default:
                     alert(`Unimplemented button ${this.getAttribute("data-type")}`);
-                    throw(`Unimplemented button ${this.getAttribute("data-type")}". Aborting!"`);
+                    throw (`Unimplemented button ${this.getAttribute("data-type")}". Aborting!"`);
             }
         });
     }
     // listens for the user to press "Enter" to submit their username as opposed to clicking the button.
-    document.getElementById('uname-input').addEventListener("keydown", function(event) {
+    document.getElementById('uname-input').addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
-                let input = document.getElementById('uname-input').value;
-                    if (input === "") {
-                        alert("Name must be filled out");
-                    } else {
-                        createPlayer();
-                        playGame();
-                    }   
+            let input = document.getElementById('uname-input').value;
+            if (input === "") {
+                alert("Name must be filled out");
+            } else {
+                createPlayer();
+                playGame();
+            }
         }
     });
     // listens for the user to press "Enter" to submit their answer as opposed to clicking the button.
-    document.getElementById('answer-input').addEventListener("keydown", function(event) {
+    document.getElementById('answer-input').addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
             let answerInput = document.getElementById('answer-input').value;
             if (answerInput === "") {
@@ -71,12 +71,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 };
             };
         }
-    });        
+    });
 });
 /**
  * Creates the player account object including name, score, amount of wrong answers
  */
- function createPlayer() {
+function createPlayer() {
     player = new Player('', 0, 0);
     player.name = document.getElementById('uname-input').value;
     document.getElementById('pbox').style.visibility = 'visible';
@@ -92,17 +92,17 @@ function Player(username, startScore, newWrongAnswers) {
     this.name = username;
     this.score = startScore;
     this.wrongAnswers = newWrongAnswers;
-  }
+}
 
 /**
  * Prepares game area by clearing greeting messages and instruction. 
  * Generates 5 random numbers which are used to slect the riddles and gets the 1st of the 5 riddles.
- */ 
+ */
 function playGame() {
     document.getElementById('greeting-area').style.display = 'none';
     document.getElementById('username-input-area').style.display = 'none';
     let revealGame = document.getElementsByClassName('game-area');
-    for(let i = 0; i < revealGame.length; i++) {
+    for (let i = 0; i < revealGame.length; i++) {
         revealGame[i].style.display = 'block';
     }
     console.log("2 - Game started");
@@ -113,7 +113,7 @@ function playGame() {
     riddleAnswer = getRiddle(rdmRiddleArray[0]);
     alert(riddleAnswer);
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
-    document.getElementById('answer-input').focus();    
+    document.getElementById('answer-input').focus();
 }
 
 function checkAnswer() {
@@ -184,7 +184,7 @@ function forfeitGame() {
         document.getElementById('greeting-area').style.display = 'block';
         document.getElementById('username-input-area').style.display = 'block';
         let revealGame = document.getElementsByClassName('game-area');
-        for(let i = 0; i < revealGame.length; i++) {
+        for (let i = 0; i < revealGame.length; i++) {
             revealGame[i].style.display = 'none';
         }
         document.getElementById('pbox').style.visibility = 'hidden';
@@ -205,9 +205,93 @@ function resetPlayer() {
 function pushToLeaderboard() {
     leaderboardArray.push(player);
     console.log("I've pushed player into array.");
-    // Code to sort leaderboard Array from https://dev.to/madanlal/how-to-sort-array-of-object-using-object-keys-in-javascript-58f1
-    leaderboardArray.sort((a,b) => (a.score > b.score) ? 1 : (a.score === b.score) ? ((a.wrongAnswers > b.wrongAnswers) ? 1 : -1) : -1 );
+    // Code to sort leaderboard Array from https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
+    leaderboardArray.sort((a, b) => (a.score > b.score) ? 1 : (a.score === b.score) ? ((a.wrongAnswers > b.wrongAnswers) ? 1 : -1) : -1);
+    leaderboardArray.pop();
     alert(JSON.stringify(leaderboardArray));
+    updateLeaderboard();
+}
+
+function updateLeaderboard() {
+    for (let i = 0; i < leaderboardArray.length; i++) {
+        let entry = leaderboardArray[i];
+        console.log(entry);
+        switch (i) {
+            case 0:
+                if (entry === undefined) {
+                    break;
+                }
+                document.getElementById('first-user').innerHTML = entry.name;
+                document.getElementById('first-score').innerHTML = entry.score;
+                break;
+            case 1:
+                if (entry === undefined) {
+                    break;
+                }
+                document.getElementById('second-user').innerHTML = entry.name;
+                document.getElementById('second-score').innerHTML = entry.score;
+                break;
+            case 2:
+                if (entry === undefined) {
+                    break;
+                }
+                document.getElementById('third-user').innerHTML = entry.name;
+                document.getElementById('third-score').innerHTML = entry.score;
+                break;
+            case 3:
+                if (entry === undefined) {
+                    break;
+                }
+                document.getElementById('fourth-user').innerHTML = entry.name;
+                document.getElementById('fourth-score').innerHTML = entry.score;
+                break;
+            case 4:
+                if (entry === undefined) {
+                    break;
+                }
+                document.getElementById('fifth-user').innerHTML = entry.name;
+                document.getElementById('fifth-score').innerHTML = entry.score;
+                break;
+            case 5:
+                if (entry === undefined) {
+                    break;
+                }
+                document.getElementById('sixth-user').innerHTML = entry.name;
+                document.getElementById('sixth-score').innerHTML = entry.score;
+                break;
+            case 6:
+                if (entry === undefined) {
+                    break;
+                }
+                document.getElementById('seventh-user').innerHTML = entry.name;
+                document.getElementById('seventh-score').innerHTML = entry.score;
+                break;
+            case 7:
+                if (entry === undefined) {
+                    break;
+                }
+                document.getElementById('eighth-user').innerHTML = entry.name;
+                document.getElementById('eighth-score').innerHTML = entry.score;
+                break;
+            case 8:
+                if (entry === undefined) {
+                    break;
+                }
+                document.getElementById('nineth-user').innerHTML = entry.name;
+                document.getElementById('nineth-score').innerHTML = entry.score;
+                break;
+            case 9:
+                if (entry === undefined) {
+                    break;
+                }
+                document.getElementById('tenth-user').innerHTML = entry.name;
+                document.getElementById('tenth-score').innerHTML = entry.score;
+                break;
+            default:
+                alert(`Unknown entry ${entry}`);
+                throw (`Unknown entry ${entry}". Aborting!"`);
+        }
+    }
 }
 
 // reuses code from the Love maths project. 
@@ -222,7 +306,7 @@ function riddleSelection() {
     let num2 = Math.floor(Math.random() * 50);
     num2 = checkDouble(num2, rdmNrsArray);
     rdmNrsArray.push(num2);
-    
+
     let num3 = Math.floor(Math.random() * 50);
     num2 = checkDouble(num3, rdmNrsArray);
     rdmNrsArray.push(num3);
@@ -260,7 +344,7 @@ function checkDouble(rdmNum, numArray) {
 function getRiddle(riddleNr) {
     let number = riddleNr;
     let selected = riddle[number];
-// document.getElementById('riddle-imgage').innerHTML = selected.image; <-- gewoon html met link naar de afbeelding <img src="link" alt="alt-text">
+    // document.getElementById('riddle-imgage').innerHTML = selected.image; <-- gewoon html met link naar de afbeelding <img src="link" alt="alt-text">
     replaceText = document.getElementById('riddle-text');
     replaceText.innerHTML = selected.text;
     replaceHint = document.getElementById('riddle-hint');
@@ -581,4 +665,3 @@ let riddle = [{
     answer: 'wholesome',
     hint: 'a word'
 }];
-
