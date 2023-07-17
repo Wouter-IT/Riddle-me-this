@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     checkAnswer();
                     break;
                 case "skip":
-                    //showAnswer(); 
+                    skipRiddle(); 
                     //nextRiddle(); < name??
                     break;
                 case "next":
@@ -95,7 +95,6 @@ function Player(username, startScore, newWrongAnswers) {
     this.score = startScore;
     this.wrongAnswers = newWrongAnswers;
 }
-
 /**
  * Prepares game area by clearing greeting messages and instruction. 
  * Generates 5 random numbers which are used to slect the riddles and gets the 1st of the 5 riddles.
@@ -117,7 +116,6 @@ function playGame() {
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('answer-input').focus();
 }
-
 /**
  * Checks if the answer given is the same as the corrrect answer stored in the riddle. If match, it increments score. If no match, increments wrong answers.
  */
@@ -154,7 +152,6 @@ function checkAnswer() {
         }
     }
 }
-
 /**
  * Checks if code is actually a number or string so it can be compared with the answer accordingly.
  */
@@ -166,7 +163,6 @@ function checkInputType(userInputAnswer) {
         return false;
     }
 }
-
 // reuses code from Love Maths project.
 /**
  * Increments score upon answering correctly.
@@ -177,7 +173,6 @@ function incrScore() {
     player.score = oldScore + 500;
     console.log(player.score);
 }
-
 // reuses code from Love Maths project.
 /**
  * Increments the Wrong Answers score.
@@ -188,7 +183,6 @@ function incrWrongAnswers() {
     player.wrongAnswers = oldWrongAnswers;
     console.log(player.wrongAnswers);
 }
-
 /**
  * Asks player to confirm forfeit. If yes, proceeds hide all elements related to the game area and reveals greeting/introduction elements . Then runs the reset player function to clear score, user input and wrong answers.
  */
@@ -231,7 +225,6 @@ function pushToLeaderboard() {
     alert(JSON.stringify(leaderboardArray));
     updateLeaderboard();
 }
-
 /**
  * Updates the leaderboard.
  */
@@ -317,6 +310,17 @@ function updateLeaderboard() {
     }
 }
 
+function skipRiddle() {
+    //Code on confirmation pop-up comes from https://www.tutorialsteacher.com/javascript/display-popup-message-in-javascript
+    skipConf = window.confirm(["Are you sure you want to skip this riddle? You won't receive any points but we will tell you what the answer was!"]);
+    if (skipConf) {
+        let answerButtonSkip = document.getElementById('answer-btn');
+            answerButtonSkip.disabled = true;
+        alert('The answer to the riddle was: ' + riddleAnswer + ' Please click the "Next Riddle" button to proceed.');
+        // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx <- needs reveal next button
+    }
+    
+}
 // reuses code from the Love maths project. 
 /**
  * Generate 5 random numbers between 0 and 49 without repeating any number
