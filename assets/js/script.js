@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 /**
- * Creates the player account object including name, score, amount of wrong answers
+ * Creates the player account and sets name (user input), score, amount of wrong answers to start positions.
  */
 function createPlayer() {
     player = new Player('', 0, 0);
@@ -87,7 +87,9 @@ function createPlayer() {
     clearInput.value = "";
     console.log("1 - Player created");
 }
-
+/**
+ * Creates the player account object including name, score, amount of wrong answers
+ */
 function Player(username, startScore, newWrongAnswers) {
     this.name = username;
     this.score = startScore;
@@ -116,6 +118,9 @@ function playGame() {
     document.getElementById('answer-input').focus();
 }
 
+/**
+ * Checks if the answer given is the same as the corrrect answer stored in the riddle. If match, it increments score. If no match, increments wrong answers.
+ */
 function checkAnswer() {
     let userAnswer = document.getElementById('answer-input').value;
     let inputString = checkInputType(userAnswer);
@@ -150,7 +155,9 @@ function checkAnswer() {
     }
 }
 
-// Checks if code is actually a number or string so it can be compared with the answer accordingly.
+/**
+ * Checks if code is actually a number or string so it can be compared with the answer accordingly.
+ */
 function checkInputType(userInputAnswer) {
     let isNan = parseInt(userInputAnswer);
     if (isNaN(isNan)) {
@@ -161,6 +168,9 @@ function checkInputType(userInputAnswer) {
 }
 
 // reuses code from Love Maths project.
+/**
+ * Increments score upon answering correctly.
+ */
 function incrScore() {
     let oldScore = parseInt(document.getElementById('crt-score').innerText);
     document.getElementById('crt-score').innerText = (oldScore + 500);
@@ -169,6 +179,9 @@ function incrScore() {
 }
 
 // reuses code from Love Maths project.
+/**
+ * Increments the Wrong Answers score.
+ */
 function incrWrongAnswers() {
     let oldWrongAnswers = parseInt(document.getElementById('crt-wa').innerText);
     document.getElementById('crt-wa').innerText = ++oldWrongAnswers;
@@ -176,6 +189,9 @@ function incrWrongAnswers() {
     console.log(player.wrongAnswers);
 }
 
+/**
+ * Asks player to confirm forfeit. If yes, proceeds hide all elements related to the game area and reveals greeting/introduction elements . Then runs the reset player function to clear score, user input and wrong answers.
+ */
 function forfeitGame() {
     //Code on confirmation pop-up comes from https://www.tutorialsteacher.com/javascript/display-popup-message-in-javascript
     forfeitConf = window.confirm(["Are you sure you want to forfeit your run? Your score will still be posted to the leaderboard."]);
@@ -191,7 +207,9 @@ function forfeitGame() {
         resetPlayer();
     }
 }
-//Resets player
+/**
+ * Resets player and clears score, user input and wrong answers.
+ */
 function resetPlayer() {
     console.log('resetting player')
     document.getElementById('crt-score').innerText = '0';
@@ -201,7 +219,9 @@ function resetPlayer() {
     console.log(player.score);
     console.log(player.wrongAnswers);
 }
-//Pushes player data to leaderboard. Then updates the leaderboard.
+/**
+ * Pushes player data to leaderboard. Then updates the leaderboard.
+ */
 function pushToLeaderboard() {
     leaderboardArray.push(player);
     console.log("I've pushed player into array.");
@@ -212,6 +232,9 @@ function pushToLeaderboard() {
     updateLeaderboard();
 }
 
+/**
+ * Updates the leaderboard.
+ */
 function updateLeaderboard() {
     for (let i = 0; i < leaderboardArray.length; i++) {
         let entry = leaderboardArray[i];
@@ -340,7 +363,9 @@ function checkDouble(rdmNum, numArray) {
     return rdmNum;
 }
 
-// gets a riddle from the riddles array and displays it on screen.
+/**
+ * Gets a riddle from the riddles array and displays it on screen.
+ */
 function getRiddle(riddleNr) {
     let number = riddleNr;
     let selected = riddle[number];
@@ -358,7 +383,7 @@ function getRiddle(riddleNr) {
 //Creates the array for the leaderboard that can be called upon by functions.
 var leaderboardArray = new Array(10);
 
-// Array of objects that stores all riddles
+// Array of objects that stores all riddle objects; includes(id, image, text, answer and hint)
 let riddle = [{
     id: 0,
     image: '<img class="riddle-icon"  src="assets/images/riddle-icons/riddle0.png" alt="icon of hand with 4 fingers up">',
