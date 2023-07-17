@@ -302,22 +302,18 @@ function riddleSelection() {
     let rdmNrsArray = [];
     let num1 = Math.floor(Math.random() * 50);
     rdmNrsArray.push(num1);
-    alert(JSON.stringify(rdmNrsArray));
 
     let num2 = Math.floor(Math.random() * 50);
     num2 = checkDouble(num2, rdmNrsArray);
     rdmNrsArray.push(num2);
-    alert(JSON.stringify(rdmNrsArray));
 
     let num3 = Math.floor(Math.random() * 50);
     num3 = checkDouble(num3, rdmNrsArray);
     rdmNrsArray.push(num3);
-    alert(JSON.stringify(rdmNrsArray));
     
     let num4 = Math.floor(Math.random() * 50);
     num4 = checkDouble(num4, rdmNrsArray);
     rdmNrsArray.push(num4);
-    alert(JSON.stringify(rdmNrsArray));
 
     let num5 = Math.floor(Math.random() * 50);
     num5 = checkDouble(num5, rdmNrsArray);
@@ -365,49 +361,49 @@ var leaderboardArray = new Array(10);
 // Array of objects that stores all riddles
 let riddle = [{
     id: 0,
-    image: '<img src="assets/images/riddle-icons/riddle0.png" alt="icon of hand with 4 fingers up">',
+    image: '<img class="riddle-image"  src="assets/images/riddle-icons/riddle0.png" alt="icon of hand with 4 fingers up">',
     text: 'Mr. Taylor has four daughters and each has a brother. In total, how many children does Mr. Taylor have?',
     answer: '5',
     hint: 'a number'
 }, {
     id: 1,
-    image: '<img src="assets/images/riddle-icons/riddle1.png" alt="angel halo icon">',
+    image: '<img class="riddle-image"  src="assets/images/riddle-icons/riddle1.png" alt="angel halo icon">',
     text: 'I possess a halo of water, walls of stone, and a tongue of wood. Long I have stood; what am I?',
     answer: 'castle',
     hint: 'a word'
 }, {
     id: 2,
-    image: '<img src="assets/images/riddle-icons/riddle2.png" alt="running man icon"',
+    image: '<img class="riddle-image"  src="assets/images/riddle-icons/riddle2.png" alt="running man icon"',
     text: 'What can run but never walk, have a mouth but never talk, have a head that never weeps, and a bed that never sleeps?',
     answer: 'river',
     hint: 'a word'
 }, {
     id: 3,
-    image: '<img src="assets/images/riddle-icons/riddle3.png" alt="hand with two fingers up icon">',
+    image: '<img class="riddle-image"  src="assets/images/riddle-icons/riddle3.png" alt="number 2 icon">',
     text: 'What has only two words, but thousands of letters?',
     answer: 'post office',
     hint: 'two words'
 }, {
     id: 4,
-    image: '<img src="assets/images/riddle-icons/riddle4.png" alt="cube with questionmark icon">',
+    image: '<img class="riddle-image"  src="assets/images/riddle-icons/riddle4.png" alt="cube with questionmark icon">',
     text: 'What can fill an entire room without taking up any space?',
     answer: 'light',
     hint: 'a word'
 }, {
     id: 5,
-    image: '<img src="assets/images/riddle-icons/riddle5.png" alt="icon of man and woman">',
+    image: '<img class="riddle-image"  src="assets/images/riddle-icons/riddle5.png" alt="icon of man and woman">',
     text: 'The first two letters signify a male, the first three letters signify a female, the first four letters signify a great person, while the entire word signifies a great woman.',
     answer: 'heroine',
     hint: 'a word'
 }, {
     id: 6,
-    image: '<img src="assets/images/riddle-icons/riddle6.png" alt="colourful number 10 icon">',
+    image: '<img class="riddle-image" src="assets/images/riddle-icons/riddle6.png" alt="colourful number 10 icon">',
     text: 'What has ten letters and starts with gas?',
     answer: 'automobile',
     hint: 'a word'
 }, {
     id: 7,
-    image: '<img src="assets/images/riddle-icons/riddle7.png" alt="coin and downwards arrow icon">',
+    image: '<img class="riddle-image" src="assets/images/riddle-icons/riddle7.png" alt="coin and downwards arrow icon">',
     text: 'People in poverty have this. If you eat this you will die. What is it?',
     answer: 'nothing',
     hint: 'a word'
