@@ -103,3 +103,8 @@ body {
     background-color: rgb(60, 153, 60);
     cursor: pointer;
 }
+.btn:disabled {
+    background-color: rgb(104, 104, 104) !important;
+    color: #fdfdfd !important;
+    opacity: 0.5;
+}
