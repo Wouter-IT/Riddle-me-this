@@ -302,21 +302,25 @@ function riddleSelection() {
     let rdmNrsArray = [];
     let num1 = Math.floor(Math.random() * 50);
     rdmNrsArray.push(num1);
+    alert(JSON.stringify(rdmNrsArray));
 
     let num2 = Math.floor(Math.random() * 50);
     num2 = checkDouble(num2, rdmNrsArray);
     rdmNrsArray.push(num2);
+    alert(JSON.stringify(rdmNrsArray));
 
     let num3 = Math.floor(Math.random() * 50);
-    num2 = checkDouble(num3, rdmNrsArray);
+    num3 = checkDouble(num3, rdmNrsArray);
     rdmNrsArray.push(num3);
-
+    alert(JSON.stringify(rdmNrsArray));
+    
     let num4 = Math.floor(Math.random() * 50);
-    num2 = checkDouble(num4, rdmNrsArray);
+    num4 = checkDouble(num4, rdmNrsArray);
     rdmNrsArray.push(num4);
+    alert(JSON.stringify(rdmNrsArray));
 
     let num5 = Math.floor(Math.random() * 50);
-    num2 = checkDouble(num5, rdmNrsArray);
+    num5 = checkDouble(num5, rdmNrsArray);
     rdmNrsArray.push(num5);
 
     alert(JSON.stringify(rdmNrsArray));
