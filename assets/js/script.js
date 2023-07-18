@@ -224,6 +224,8 @@ function forfeitGame() {
             revealGame[i].style.display = 'none';
         }
         document.getElementById('pbox').style.visibility = 'hidden';
+        let nextButtonForfeit = document.getElementById('next-btn');
+            nextButtonForfeit.disabled = true;    
         resetPlayer();
     }
 }
@@ -236,7 +238,7 @@ function resetPlayer() {
     document.getElementById('crt-wa').innerText = '0';
     let answerButton = document.getElementById('answer-btn');
     answerButton.disabled = false;
-    document.getElementById("next-btn").innerText = 'Next Game';
+    document.getElementById("next-btn").innerHTML = 'Next<br>Game';
     console.log(player.score);
     console.log(player.wrongAnswers);
     riddleCounter = 0;
@@ -368,7 +370,7 @@ function nextRiddle() {
     clearInput.value = "";
     console.log('Riddle counter is on' + riddleCounter);
     if (riddleCounter === 4)
-        document.getElementById("next-btn").innerText = 'End Game';
+        document.getElementById("next-btn").innerHTML = 'End<br>Game';
     if (riddleCounter >=5) {
         endGame();
     } else {
