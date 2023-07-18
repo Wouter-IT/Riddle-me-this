@@ -364,6 +364,8 @@ function skipRiddle() {
 let riddleCounter;
 function nextRiddle() {
     ++riddleCounter;
+    let clearInput = document.getElementById('answer-input');
+    clearInput.value = "";
     console.log('Riddle counter is on' + riddleCounter);
     if (riddleCounter === 4)
         document.getElementById("next-btn").innerText = 'End Game';
