@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('uname-input').focus();
     // iniitializes player to store first input in.
-    new Player('', 0, 0)
+    Player('', 0, 0);
     let riddleCounter;
     let rdmRiddleArray = [];
     for (let button of buttons) {
@@ -57,24 +57,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 playGame();
             }
         }
-    });
+    })
     // listens for the user to press "Enter" to submit their answer as opposed to clicking the button.
     document.getElementById('answer-input').addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
-            let answerInput = document.getElementById('answer-input').value;
-            if (answerInput === "") {
-                alert("An answer must be filled in");
-                document.getElementById('answer-input').focus();
+            if (document.getElementById('answer-btn').disabled === true) {
+                alert('You have already answered correctly! Please proceed to the next riddle by clicking the "Next" button.');
             } else {
-                if (document.getElementById('answer-btn').disabled === true) {
-                    alert('You have already answered correctly! Please proceed to the next riddle by clicking the "Next" button.');
+                let answerInput = document.getElementById('answer-input').value;
+                if (answerInput === "") {
+                    alert("An answer must be filled in");
+                    document.getElementById('answer-input').focus();
                 } else {
-                    checkAnswer();
-                };
-            };
-        }
+                        checkAnswer();
+                    }
+                }
+            }
+        })
     });
-});
 /**
  * Creates the player account and sets name (user input), score, amount of wrong answers to start positions.
  */
