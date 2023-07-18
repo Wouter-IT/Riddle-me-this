@@ -62,23 +62,25 @@ body {
     font-size: 1.4rem;
 } 
 .lead-box {
-    width: 11%;
+    width: 13%;
     height: 47vh;
     float: right;
-    margin-right: 3vw;
+    margin-right: 2vw;
     background-color: #e6ebe0;
     position: relative;
 }
 #lead-header {
     font-size: 1.7rem;
 }
-#lead-subheader{
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 1rem;
+.lead-subheader{
+    font-size: 1.2rem;
 }
 .lead-listing {
     line-height: 4vh;
+    font-size: 1.1rem;
+}
+.lead-listing span {
+    padding-left: 1vw;
 }
 #lead-position {
     width: 33%;
@@ -87,15 +89,29 @@ body {
 #lead-score {
     width: 33%;
     float: right;
+    text-align: right;
 }
 #lead-name {
+    width: 33%;
     margin: 0 auto;
 }
-
-#lead-scores {
+.lead-left {
+    width: 33%;
+    float: left;
+}
+.lead-right {
+    width: 33%;
+    float: right;
+    text-align: right;
+}
+.lead-mid {
+    width: 33%;
+    margin: 0 auto;
+}
+/* #lead-scores {
     position: absolute;
         right: 1vw;
-}
+} */
 .game-area{
     display: none;
     width: 100%;
