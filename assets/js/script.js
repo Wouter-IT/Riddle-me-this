@@ -370,12 +370,15 @@ function nextRiddle() {
     answerButtonNext.disabled = false;
     let nextButtonNext = document.getElementById('next-btn');
     nextButtonNext.disabled = true;
+    document.getElementById('answer-input').focus();
     // causes timer to reset and start ticking
     seconds = 0;
     addSecond = 1;
 }
 }
-
+/**
+ * Ends game, congratulates player and displays their score. Then sends them back to the greeting screen and resets player data.
+ */
 function endGame() {
     alert('Congratulations! You have completed your run with a score of: ' + player.score + ' and a wrong answers of: ' + player.wrongAnswers + ' Your score will be saved and, if you scored high enough for the top 10, posted on the leaderboard. You will now be brough back to the Instruction screen');
     pushToLeaderboard();
