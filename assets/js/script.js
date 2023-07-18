@@ -5,14 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('uname-input').focus();
     // iniitializes player to store first input in.
-    Player('', 0, 0);
-    let riddleCounter;
-    let rdmRiddleArray = [];
+    // Player('', 0, 0);
     for (let button of buttons) {
         button.addEventListener("click", function () {
             switch (this.getAttribute("data-type")) {
                 case "username":
-                    // Check input code based off snd example snippet on https://www.w3schools.com/howto/howto_js_validation_empty_input.asp
+                    // Check input code based off an example snippet on https://www.w3schools.com/howto/howto_js_validation_empty_input.asp
                     let input = document.getElementById('uname-input').value;
                     if (input === "") {
                         alert("Name must be filled out");
@@ -57,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 playGame();
             }
         }
-    })
+    });
     // listens for the user to press "Enter" to submit their answer as opposed to clicking the button.
     document.getElementById('answer-input').addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
@@ -73,16 +71,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
             }
-        })
+        });
     });
 /**
  * Creates the player account and sets name (user input), score, amount of wrong answers to start positions.
  */
+let player;
 function createPlayer() {
     player = new Player('', 0, 0);
     player.name = document.getElementById('uname-input').value;
     document.getElementById('pbox').style.visibility = 'visible';
-    currentUsername = document.getElementById('crt-uname');
+    let currentUsername = document.getElementById('crt-uname');
     currentUsername.innerHTML = player.name;
     // Clears user input for when they return to this screen
     let clearInput = document.getElementById('uname-input');
@@ -97,6 +96,7 @@ function Player(username, startScore, newWrongAnswers) {
     this.score = startScore;
     this.wrongAnswers = newWrongAnswers;
 }
+let riddleAnswer;
 /**
  * Prepares game area by clearing greeting messages and instruction. 
  * Generates 5 random numbers which are used to slect the riddles and gets the 1st of the 5 riddles.
@@ -118,6 +118,7 @@ function playGame() {
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('answer-input').focus();
     // causes timer to start ticking
+    seconds = 0;
     addSecond = 1;
 }
 /**
@@ -213,7 +214,7 @@ function incrWrongAnswers() {
  */
 function forfeitGame() {
     //Code on confirmation pop-up comes from https://www.tutorialsteacher.com/javascript/display-popup-message-in-javascript
-    forfeitConf = window.confirm(["Are you sure you want to forfeit your run? Your score will still be posted to the leaderboard."]);
+    let forfeitConf = window.confirm(["Are you sure you want to forfeit your run? Your score will still be posted to the leaderboard."]);
     if (forfeitConf) {
         pushToLeaderboard();
         document.getElementById('greeting-area').style.display = 'block';
@@ -230,17 +231,20 @@ function forfeitGame() {
  * Resets player and clears score, user input and wrong answers.
  */
 function resetPlayer() {
-    console.log('resetting player')
+    console.log('resetting player');
     document.getElementById('crt-score').innerText = '0';
     document.getElementById('crt-wa').innerText = '0';
     let answerButton = document.getElementById('answer-btn');
     answerButton.disabled = false;
+    document.getElementById("next-btn").innerText = 'Next Game';
     console.log(player.score);
     console.log(player.wrongAnswers);
     riddleCounter = 0;
     // causes timer to stop ticking
     addSecond = 0;
 }
+//Creates the array for the leaderboard that can be called upon by functions.
+let leaderboardArray = new Array(10);
 /**
  * Pushes player data to leaderboard. Then updates the leaderboard.
  */
@@ -248,7 +252,7 @@ function pushToLeaderboard() {
     leaderboardArray.push(player);
     console.log("I've pushed player into array.");
     // Code to sort leaderboard Array from https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
-    leaderboardArray.sort((a, b) => (a.score > b.score) ? 1 : (a.score === b.score) ? ((a.wrongAnswers > b.wrongAnswers) ? 1 : -1) : -1);
+    leaderboardArray.sort((a, b) => (b.score > a.score) ? 1 : (b.score === b.score) ? ((b.wrongAnswers > a.wrongAnswers) ? -1 : 1) : -1 );
     leaderboardArray.pop();
     alert(JSON.stringify(leaderboardArray));
     updateLeaderboard();
@@ -342,7 +346,7 @@ function updateLeaderboard() {
  */
 function skipRiddle() {
     //Code on confirmation pop-up comes from https://www.tutorialsteacher.com/javascript/display-popup-message-in-javascript
-    skipConf = window.confirm(["Are you sure you want to skip this riddle? You won't receive any points but we will tell you what the answer was!"]);
+    let skipConf = window.confirm(["Are you sure you want to skip this riddle? You won't receive any points but we will tell you what the answer was!"]);
     if (skipConf) {
         let answerButtonSkip = document.getElementById('answer-btn');
             answerButtonSkip.disabled = true;
@@ -357,8 +361,10 @@ function skipRiddle() {
 /**
  * Adds +1 to the riddle counter and loads new riddle to the screen. If 5th riddle has been completed/skipped it ends the game.
  */
+let riddleCounter;
 function nextRiddle() {
     ++riddleCounter;
+    console.log('Riddle counter is on' + riddleCounter);
     if (riddleCounter === 4)
         document.getElementById("next-btn").innerText = 'End Game';
     if (riddleCounter >=5) {
@@ -392,6 +398,7 @@ function endGame() {
     resetPlayer();
 }
 
+let rdmRiddleArray = [];
 // reuses code from the Love maths project. 
 /**
  * Generate 5 random numbers between 0 and 49 without repeating any number
@@ -444,11 +451,11 @@ function checkDouble(rdmNum, numArray) {
 function getRiddle(riddleNr) {
     let number = riddleNr;
     let selected = riddle[number];
-    replaceImage = document.getElementById('riddle-image');
+    let replaceImage = document.getElementById('riddle-image');
     replaceImage.innerHTML = selected.image;
-    replaceText = document.getElementById('riddle-text');
+    let replaceText = document.getElementById('riddle-text');
     replaceText.innerHTML = selected.text;
-    replaceHint = document.getElementById('riddle-hint');
+    let replaceHint = document.getElementById('riddle-hint');
     replaceHint.innerHTML = selected.hint;
     let answer = selected.answer;
     console.log("5 - Riddle retreived for play");
@@ -456,24 +463,21 @@ function getRiddle(riddleNr) {
 }
 
 // Code for timer derived from https://linuxhint.com/javascript-count-up-timer/
-var seconds = 0;
-var addSecond = 0;
-var timer = setInterval(upTimer, 1000);
+let seconds = 0;
+let addSecond = 0;
+setInterval(upTimer, 1000);
 function upTimer() {
     seconds = seconds + addSecond;
     document.getElementById("countup").innerHTML = seconds;
 
 }
 
-//Creates the array for the leaderboard that can be called upon by functions.
-var leaderboardArray = new Array(10);
-
 // Array of objects that stores all riddle objects; includes(id, image, text, answer and hint)
 let riddle = [{
     id: 0,
     image: '<img class="riddle-icon"  src="assets/images/riddle-icons/riddle0.png" alt="icon of hand with 4 fingers up">',
     text: 'Mr. Taylor has four daughters and each has a brother. In total, how many children does Mr. Taylor have?',
-    answer: '5',
+    answer: 5,
     hint: 'a number'
 }, {
     id: 1,
