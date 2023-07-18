@@ -27,7 +27,7 @@ body {
 }
 .playerscore-box {
     width: 11%;
-    height: 200px;
+    height: 18vh;
     float: left;
     margin-left: 3vw;
     background-color: #e6ebe0;
@@ -111,13 +111,6 @@ body {
 .game-area{
     display: none;
 }
-/* .information-area{
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */
 .input-area{
     width: 100%;
     padding-bottom: 2vh;
@@ -216,9 +209,80 @@ body {
 
 /* Media Queries */
 /* Screen sizes  */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 2800px) {
+    body {
+        font-size: 160% !important;
+    }
+    #greeting-header {
+        font-size: 3.3rem !important;
+    }
+    #greeting-text {
+        font-size: 1.8rem !important;
+    } 
+    #riddle-text {
+        font-size: 2rem !important;
+    }
+    #username-input-area {
+        font-size: 2rem !important;
+    }
+    #lead-header {
+        font-size: 2.3rem !important;
+    }
+    .lead-subheader{
+        font-size: 1.7rem !important;
+    }
+    .lead-listing {
+        font-size: 1.7rem !important;
+    }
+    #player-header {
+        font-size: 2.3rem !important;
+    }
+    #pbox h3 {
+        font-size: 1.8rem !important;
+    }
+    .btn {
+        font-size: 2.3rem !important;
+    }
+    #start-btn {
+        font-size: 2.8rem !important;
+    }
+}
+
+@media screen and (min-width: 2100px) {
     body {
         font-size: 140%;
     }
-
+    #greeting-header {
+        font-size: 3rem;
+    }
+    #greeting-text {
+        font-size: 1.6rem;
+    } 
+    #riddle-text {
+        font-size: 1.7rem;
+    }
+    #username-input-area {
+        font-size: 1.7rem;
+    }
+    #lead-header {
+        font-size: 2rem;
+    }
+    .lead-subheader{
+        font-size: 1.4rem;
+    }
+    .lead-listing {
+        font-size: 1.3rem;
+    }
+    #player-header {
+        font-size: 2rem;
+    }
+    #pbox h3 {
+        font-size: 1.5rem;
+    }
+    .btn {
+        font-size: 2rem;
+    }
+    #start-btn {
+        font-size: 2.5rem;
+    }
 }
