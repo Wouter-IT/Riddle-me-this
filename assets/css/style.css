@@ -52,7 +52,6 @@ body {
     width: 100%;
     margin: 0 auto;
     
-    
 }
 #greeting-header {
     font-size: 2rem;
@@ -64,7 +63,7 @@ body {
 } 
 .lead-box {
     width: 11%;
-    height: 75vh;
+    height: 47vh;
     float: right;
     margin-right: 7vh;
     background-color: #e6ebe0;
@@ -77,6 +76,9 @@ body {
     display: inline-block;
     margin-top: 10px;
     font-size: 1rem;
+}
+.lead-listing {
+    line-height: 4vh;
 }
 #lead-position {
     width: 33%;
@@ -162,8 +164,12 @@ body {
     cursor: pointer;
 }
 #icon-credit {
-    margin: 0 auto;
-    width: 30%
+    width: 30%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
 }
 /* Button disabled psuedoclass from https://stackoverflow.com/questions/14750078/style-disabled-button-with-css by user beerwin */
 .btn:disabled {
