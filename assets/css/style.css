@@ -51,7 +51,6 @@ body {
 #greeting-area {
     width: 100%;
     margin: 0 auto;
-    
 }
 #greeting-header {
     font-size: 2rem;
@@ -107,11 +106,8 @@ body {
 .lead-mid {
     width: 33%;
     margin: 0 auto;
+    text-align: left;
 }
-/* #lead-scores {
-    position: absolute;
-        right: 1vw;
-} */
 .game-area{
     display: none;
     width: 100%;
