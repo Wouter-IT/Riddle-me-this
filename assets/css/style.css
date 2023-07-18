@@ -11,13 +11,19 @@ body {
 .heading {
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 250%;
-    margin-bottom: 1vh;
+    font-size: 150%;
+    margin: 1vh 0;
     color: #e6ebe0;
 }
 .logo {
-    margin-top: 20px;
+    padding: 10px 0;
     width: 75px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+#logo-text {
+    font-size: 200%;
 }
 .box {
     border-radius: 25px;
@@ -27,7 +33,7 @@ body {
 }
 .playerscore-box {
     width: 11%;
-    height: 18vh;
+    height: 20vh;
     float: left;
     margin-left: 3vw;
     background-color: #e6ebe0;
@@ -208,7 +214,7 @@ body {
 }
 
 /* Media Queries */
-/* Screen sizes  */
+/* Screen size 2800px and bigger  */
 @media screen and (min-width: 2800px) {
     body {
         font-size: 160% !important;
@@ -247,7 +253,7 @@ body {
         font-size: 2.8rem !important;
     }
 }
-
+/* Screen size 2100px to 2800px  */
 @media screen and (min-width: 2100px) {
     body {
         font-size: 140%;
@@ -284,5 +290,180 @@ body {
     }
     #start-btn {
         font-size: 2.5rem;
+    }
+}
+/* Screens below 1500px width */
+@media screen and (max-width: 1500px) {
+    body {
+        font-size: 110%;
+    }
+    .game-box {
+        width: 50%;
+    }
+    .playerscore-box {
+        width: 14%;
+    }
+    #greeting-header {
+        font-size: 1.7rem;
+        padding-top: 2vh;
+    }
+    #greeting-text {
+        font-size: 1.0rem;
+        padding: 2vh 2vw;
+    } 
+    .riddle-icon{
+        width: 225px;
+        height: 225px;
+        margin: 4vh 4vw;
+    }
+    #riddle-text {
+        font-size: 1.1rem;
+    }
+    #username-input-area {
+        font-size: 1.1rem;
+        width: 100%;
+    }
+    .lead-box {
+        margin-right: 4vw;
+        width: 15%;
+        height: 35vh;
+    }
+    #lead-header {
+        font-size: 1.5rem;
+    }
+    .lead-subheader{
+        font-size: 1.0rem;
+    }
+    .lead-listing {
+        font-size: 0.9rem;
+        line-height: 3vh;
+    }
+    #player-header {
+        font-size: 1.5rem;
+    }
+    #pbox h3 {
+        font-size: 1.0rem;
+    }
+    .btn {
+        font-size: 1.5rem;
+    }
+    #start-btn {
+        font-size: 1.8rem;
+    }
+    .btn {
+        font-size: 1.3rem;
+    }
+    #icon-credit {
+        width: 100%;
+    }
+}
+/* Screens below 1100px width */
+@media screen and (max-width: 1100px) {
+    body {
+        font-size: 0.9rem;
+    }
+    .heading-container {
+        height: 13vh;
+        width: 100%;
+    }
+    .heading{
+        font-size: 150%;
+        height: 7vh;
+    }
+    #logo-text {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .logo {
+        padding-top: 7px;
+        padding-left: 15px;
+        margin-top: 0;
+        width: 30px;
+    }
+    .game-box {
+        width: 66%;
+        height: 50vh;
+        z-index: -1;
+        position: relative;
+    }
+    .playerscore-box {
+        width: 14%;
+        margin-left: 5vw;;
+    }
+    #greeting-header {
+        font-size: 1.4rem;
+        padding-top: 1vh;
+    }
+    #greeting-text {
+        font-size: 0.75rem;
+        padding: 1vh 2vw;
+    } 
+    .riddle-icon {
+        height: 150px;
+        width: 150px;
+        margin: 3vh 2vw;
+    }
+    #riddle-text {
+        font-size: 0.9rem;
+    }
+    #username-input-area {
+        font-size: 0.8rem;
+        width: 100%;
+    }
+    #uname-input {
+        font-size: 0.7rem;
+    }
+    .lead-box {
+        margin-right: 4vw;
+        width: 66%;
+        height: 24vh;
+        clear: left;
+        position: absolute;
+        bottom: -11vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #lead-header {
+        font-size: 1.2rem;
+    }
+    .lead-subheader{
+        font-size: 0.8rem;
+    }
+    .lead-listing {
+        font-size: 0.7rem;
+        line-height: 2vh;
+    }
+    #player-header {
+        font-size: 1.3rem;
+    }
+    #pbox h3 {
+        font-size: 0.8rem;
+    }
+    .btn {
+        font-size: 1rem;
+    }
+    #start-btn {
+        font-size: 1.1rem;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        width: 8vw;
+        height: 4vw;
+    }
+    #icon-credit {
+        width: 100%;
+    }
+} 
+@media screen and (max-width: 900px) {
+    .heading-container {
+        margin-top: 20px;
+    }
+    .game-box {
+        height: 48vh;
+    }
+    .playerscore-box {
+        height: 13vh;
+    }
+    .lead-box {
+        height: 26vh;
     }
 }
