@@ -79,6 +79,17 @@ body {
 .game-area{
     display: none;
 }
+.riddle-icon {
+    width: 350px;
+    height: 350px;
+    margin: 4vh 4vw;
+}
+.gametext {
+    padding: 5px 0;
+}
+#riddle-text {
+    margin: 0 2vw;
+}
 #username-input-area {
     font-family: "Lato", sans-serif;
     font-size: 1.3rem;
@@ -91,17 +102,50 @@ body {
     font-family: "Lato", sans-serif;
     font-size: 1.3rem;
 }
-#start-btn {
+.btn {
     font-family: "Josefin sans", sans-serif;
-    font-size: 2rem;
-    padding: 25px 50px;
+    font-size: 1.5rem;
+    padding: 15px 25px;
     margin-top: 2vh;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
     background-color: rgb(47, 119, 47);
     color: #e6ebe0;
+}
+#start-btn {
+    padding: 25px 50px;
+    font-size: 2rem;
+    margin-top: 3vh;
+    background-color: rgb(47, 119, 47);
+    color: #e6ebe0;
+}
+#skip-btn {
+    background-color: #FBA115;
+}
+#forfeit-btn {
+    background-color: darkred;
 }
 #start-btn:hover {
     background-color: rgb(60, 153, 60);
     cursor: pointer;
+}
+#answer-btn:hover {
+    background-color: rgb(60, 153, 60);
+    cursor: pointer;
+}
+#skip-btn:hover {
+    background-color: #fdb239;
+}
+#forfeit-btn:hover {
+    background-color: rgb(185, 7, 7);
+}
+#next-btn:hover {
+    background-color: rgb(60, 153, 60);
+    cursor: pointer;
+}
+#icon-credit {
+    margin: 0 auto;
+    width: 30%
 }
 /* Button disabled psuedoclass from https://stackoverflow.com/questions/14750078/style-disabled-button-with-css by user beerwin */
 .btn:disabled {

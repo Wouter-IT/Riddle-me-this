@@ -31,6 +31,9 @@
     <div class="lead-box box">
         <h2 id="lead-header">Leaderboards</h2>
         <p>
+            Place Username Score
+        </p>
+        <p>
             1st<span id="first-user">Beat me!</span><span id="first-score">1500</span>
         </p>
         <br>
@@ -92,11 +95,11 @@
         </div>
         <div class="game-area">
             <div id="riddle-image"></div>
-            <div>
+            <div class="gametext">
                 <p id="riddle-text"></p>
             </div>
-            <div>
-                <p id="riddle-hint"></p>
+            <div class="gametext">
+                <p>We are looking for <span id="riddle-hint"></span></p>
             </div>
         </div>
         <div id="username-input-area">
@@ -109,12 +112,16 @@
             <label id="answer-label" for="answer-input" minlength='1'>Your answer:</label>
             <input id="answer-input" type="text" required>
             <br>
+            <p class="gametext">
+            Seconds passed: <span id="countup"></span>
+            </p>
+            <br>
             <button class='btn' data-type="answer" id="answer-btn">Submit Answer</button>
             <button class='btn' data-type="skip" id="skip-btn">Skip Riddle</button>
             <button class='btn' data-type="forfeit" id="forfeit-btn">Forfeit Game</button>
             <button class='btn' data-type="next" id="next-btn" disabled="true">Next Riddle</button>
         </div>
-        <a id="icon-credit" class="game-area" href="https://www.flaticon.com/authors/freepik" title="icons credit">Icons created by Freepik - Flaticon</a>
+        <a id="icon-credit" class="game-area" target="_blank" href="https://www.flaticon.com/authors/freepik" title="icons credit">Icons created by Freepik - Flaticon</a>
     </div>
     <!-- link to script -->
     <script src="assets/js/script.js"></script> 

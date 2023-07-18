@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('uname-input').focus();
     // iniitializes player to store first input in.
     new Player('', 0, 0)
+    let riddleCounter;
+    let rdmRiddleArray = [];
     for (let button of buttons) {
         button.addEventListener("click", function () {
             switch (this.getAttribute("data-type")) {
@@ -108,14 +110,15 @@ function playGame() {
     }
     console.log("2 - Game started");
     // Calls a function to "select" 5 random numbers and displays riddle on screen
-    let rdmRiddleArray = [];
     rdmRiddleArray = riddleSelection();
     //Gets a new riddle a puts it on screen. Then stores the answer value of the riddle object in the riddleAnswer variable which is declared at the top of this document.
-    var counter = 0;
-    riddleAnswer = getRiddle(rdmRiddleArray[counter]);
+    riddleCounter = 0;
+    riddleAnswer = getRiddle(rdmRiddleArray[riddleCounter]);
     alert(riddleAnswer);
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('answer-input').focus();
+    // causes timer to start ticking
+    addSecond = 1;
 }
 /**
  * Checks if the answer given is the same as the corrrect answer stored in the riddle. If match, it increments score. If no match, increments wrong answers.
@@ -130,12 +133,15 @@ function checkAnswer() {
     if (inputString) {
         if (userAnswer.toLowerCase() === riddleAnswer) {
             alert("this answer is correct! (string)");
+            // causes timer to stop ticking
+            addSecond = 0;
             incrScore();
             // let playerScore = document.getElementById('crt-score').innertHTML;
             let answerButtonString = document.getElementById('answer-btn');
             answerButtonString.disabled = true;
             let nextButtonString = document.getElementById('next-btn');
-            nextButtonString.disabled = false;  
+            nextButtonString.disabled = false;   
+        
         } else {
             alert("this answer is incorrect! (string)");
             incrWrongAnswers();
@@ -145,12 +151,14 @@ function checkAnswer() {
         let parsed = parseInt(userAnswer);
         if (parsed === riddleAnswer) {
             alert("this answer is correct! (number)");
+            // causes timer to stop ticking
+            addSecond = 0;
             incrScore();
             //Code from https://www.scaler.com/topics/javascript-disable-button/
             let answerButtonInt = document.getElementById('answer-btn');
             answerButtonInt.disabled = true;
             let nextButtonInt = document.getElementById('next-btn');
-            nextButtonInt.disabled = false;  
+            nextButtonInt.disabled = false; 
         } else {
             alert("This answer is incorrect! (number)");
             incrWrongAnswers();
@@ -173,9 +181,21 @@ function checkInputType(userInputAnswer) {
  * Increments score upon answering correctly.
  */
 function incrScore() {
+    let spdBonus; 
+    if (seconds > 0 && seconds <= 10) {
+        spdBonus = 250;
+    } else if (seconds > 10 && seconds <= 20) {
+        spdBonus = 200;
+    } else if (seconds > 20 && seconds <= 40) {
+        spdBonus = 100;
+    } else if (seconds > 40 && seconds <= 90) {
+        spdBonus = 50;
+    } else if (seconds > 90) {
+        spdBonus = 0;
+    }
     let oldScore = parseInt(document.getElementById('crt-score').innerText);
-    document.getElementById('crt-score').innerText = (oldScore + 500);
-    player.score = oldScore + 500;
+    document.getElementById('crt-score').innerText = (oldScore + 500 + spdBonus);
+    player.score = oldScore + 500 + spdBonus;
     console.log(player.score);
 }
 // reuses code from Love Maths project.
@@ -217,6 +237,9 @@ function resetPlayer() {
     answerButton.disabled = false;
     console.log(player.score);
     console.log(player.wrongAnswers);
+    riddleCounter = 0;
+    // causes timer to stop ticking
+    addSecond = 0;
 }
 /**
  * Pushes player data to leaderboard. Then updates the leaderboard.
@@ -326,16 +349,46 @@ function skipRiddle() {
         let nextButtonSkip = document.getElementById('next-btn');
             nextButtonSkip.disabled = false;    
         alert('The answer to the riddle was: ' + riddleAnswer + ' Please click the "Next Riddle" button to proceed.');
-        // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx <- needs reveal next button
+        // causes timer to stop ticking
+        addSecond = 0;
     }
     
 }
-
+/**
+ * Adds +1 to the riddle counter and loads new riddle to the screen. If 5th riddle has been completed/skipped it ends the game.
+ */
 function nextRiddle() {
-    counter + 1;
-    riddleAnswer = getRiddle(rdmRiddleArray[counter]);
+    ++riddleCounter;
+    if (riddleCounter === 4)
+        document.getElementById("next-btn").innerText = 'End Game';
+    if (riddleCounter >=5) {
+        endGame();
+    } else {
+    riddleAnswer = getRiddle(rdmRiddleArray[riddleCounter]);
     alert(riddleAnswer);
+    let answerButtonNext = document.getElementById('answer-btn');
+    answerButtonNext.disabled = false;
+    let nextButtonNext = document.getElementById('next-btn');
+    nextButtonNext.disabled = true;
+    // causes timer to reset and start ticking
+    seconds = 0;
+    addSecond = 1;
 }
+}
+
+function endGame() {
+    alert('Congratulations! You have completed your run with a score of: ' + player.score + ' and a wrong answers of: ' + player.wrongAnswers + ' Your score will be saved and, if you scored high enough for the top 10, posted on the leaderboard. You will now be brough back to the Instruction screen');
+    pushToLeaderboard();
+    document.getElementById('greeting-area').style.display = 'block';
+    document.getElementById('username-input-area').style.display = 'block';
+    let revealGame = document.getElementsByClassName('game-area');
+    for (let i = 0; i < revealGame.length; i++) {
+        revealGame[i].style.display = 'none';
+    }
+    document.getElementById('pbox').style.visibility = 'hidden';
+    resetPlayer();
+}
+
 // reuses code from the Love maths project. 
 /**
  * Generate 5 random numbers between 0 and 49 without repeating any number
@@ -399,6 +452,16 @@ function getRiddle(riddleNr) {
     return answer;
 }
 
+// Code for timer derived from https://linuxhint.com/javascript-count-up-timer/
+var seconds = 0;
+var addSecond = 0;
+var timer = setInterval(upTimer, 1000);
+function upTimer() {
+    seconds = seconds + addSecond;
+    document.getElementById("countup").innerHTML = seconds;
+
+}
+
 //Creates the array for the leaderboard that can be called upon by functions.
 var leaderboardArray = new Array(10);
 
@@ -417,7 +480,7 @@ let riddle = [{
     hint: 'a word'
 }, {
     id: 2,
-    image: '<img class="riddle-icon"  src="assets/images/riddle-icons/riddle2.png" alt="running man icon"',
+    image: '<img class="riddle-icon"  src="assets/images/riddle-icons/riddle2.png" alt="running man icon">',
     text: 'What can run but never walk, have a mouth but never talk, have a head that never weeps, and a bed that never sleeps?',
     answer: 'river',
     hint: 'a word'
@@ -605,7 +668,7 @@ let riddle = [{
     id: 33,
     image: '<img class="riddle-icon" src="assets/images/riddle-icons/riddle33.png" alt="two persons together icon">',
     text: 'What word in the English language has three consecutive double letters?',
-    answer: 'Bookkeeper',
+    answer: 'bookkeeper',
     hint: 'a word'
 }, {
     id: 34,
