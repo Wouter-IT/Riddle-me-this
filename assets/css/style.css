@@ -29,7 +29,7 @@ body {
     width: 11%;
     height: 200px;
     float: left;
-    margin-left: 4vw;
+    margin-left: 3vw;
     background-color: #e6ebe0;
     visibility: hidden;
 }
@@ -65,7 +65,7 @@ body {
     width: 11%;
     height: 47vh;
     float: right;
-    margin-right: 7vh;
+    margin-right: 3vw;
     background-color: #e6ebe0;
     position: relative;
 }
@@ -98,6 +98,11 @@ body {
 }
 .game-area{
     display: none;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .riddle-icon {
     width: 350px;
@@ -164,12 +169,17 @@ body {
     cursor: pointer;
 }
 #icon-credit {
-    width: 30%;
+    text-decoration: none;
+    color: #36213E;
+    width: 50%;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+}
+#icon-credit:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 /* Button disabled psuedoclass from https://stackoverflow.com/questions/14750078/style-disabled-button-with-css by user beerwin */
 .btn:disabled {
