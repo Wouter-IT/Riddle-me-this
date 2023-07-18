@@ -42,7 +42,7 @@ body {
 }
 .game-box {
     background-color: #e6ebe0;
-    width: 60%;
+    width: 59%;
     height: 75vh;
     margin: 0 auto;
     text-align: center;
@@ -54,14 +54,14 @@ body {
 }
 #greeting-header {
     font-size: 2rem;
-    padding-top: 5vh;
+    padding-top: 4vh;
 }
 #greeting-text {
     padding: 2vh 5vw;
     font-size: 1.4rem;
 } 
 .lead-box {
-    width: 13%;
+    width: 14%;
     height: 47vh;
     float: right;
     margin-right: 2vw;
@@ -141,14 +141,12 @@ body {
     font-family: "Lato", sans-serif;
     font-size: 1.3rem;
 }
-#answer-area {
-    height: 4vh;
+#timer {
+    padding-top: 0.5vh;
 }
 .btn {
-    display: inline-block;
     font-family: "Josefin sans", sans-serif;
     font-size: 1.5rem;
-    padding: 15px 25px;
     width: 10vw;
     height: 5vw;
     margin-left: 0.5vw;
@@ -157,7 +155,6 @@ body {
     color: #e6ebe0;
 }
 #start-btn {
-    padding: 25px 50px;
     font-size: 2rem;
     margin-top: 3vh;
     background-color: rgb(47, 119, 47);
