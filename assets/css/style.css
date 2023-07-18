@@ -67,11 +67,24 @@ body {
 #lead-header {
     font-size: 1.7rem;
 }
-.lead-subheader{
+#lead-subheader{
     display: inline-block;
     margin-top: 10px;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
+#lead-position {
+    width: 33%;
+    float: left;
+}
+#lead-score {
+    width: 33%;
+    float: right;
+}
+#lead-name {
+    margin: 0 auto;
+    /* text-align: center; */
+}
+
 #lead-scores {
     position: absolute;
         right: 1vw;
