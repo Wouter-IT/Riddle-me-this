@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('uname-input').focus();
-    var player = new Player('', 0, 0)
+    // iniitializes player to store first input in.
+    new Player('', 0, 0)
     for (let button of buttons) {
         button.addEventListener("click", function () {
             switch (this.getAttribute("data-type")) {
@@ -30,10 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     break;
                 case "skip":
                     skipRiddle(); 
-                    //nextRiddle(); < name??
                     break;
                 case "next":
-                    // something to get new riddle with number form random number array
+                    nextRiddle();
                     break;
                 case "forfeit":
                     forfeitGame();
@@ -111,7 +111,8 @@ function playGame() {
     let rdmRiddleArray = [];
     rdmRiddleArray = riddleSelection();
     //Gets a new riddle a puts it on screen. Then stores the answer value of the riddle object in the riddleAnswer variable which is declared at the top of this document.
-    riddleAnswer = getRiddle(rdmRiddleArray[0]);
+    var counter = 0;
+    riddleAnswer = getRiddle(rdmRiddleArray[counter]);
     alert(riddleAnswer);
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('answer-input').focus();
@@ -131,8 +132,10 @@ function checkAnswer() {
             alert("this answer is correct! (string)");
             incrScore();
             // let playerScore = document.getElementById('crt-score').innertHTML;
-            let answerButton = document.getElementById('answer-btn');
-            answerButton.disabled = true;
+            let answerButtonString = document.getElementById('answer-btn');
+            answerButtonString.disabled = true;
+            let nextButtonString = document.getElementById('next-btn');
+            nextButtonString.disabled = false;  
         } else {
             alert("this answer is incorrect! (string)");
             incrWrongAnswers();
@@ -144,8 +147,10 @@ function checkAnswer() {
             alert("this answer is correct! (number)");
             incrScore();
             //Code from https://www.scaler.com/topics/javascript-disable-button/
-            let answerButton = document.getElementById('answer-btn');
-            answerButton.disabled = true;
+            let answerButtonInt = document.getElementById('answer-btn');
+            answerButtonInt.disabled = true;
+            let nextButtonInt = document.getElementById('next-btn');
+            nextButtonInt.disabled = false;  
         } else {
             alert("This answer is incorrect! (number)");
             incrWrongAnswers();
@@ -309,17 +314,27 @@ function updateLeaderboard() {
         }
     }
 }
-
+/**
+ * Asks confirmation after which answer button is disabled, answer is revealed through alert and player instructed to press "Next Riddle"
+ */
 function skipRiddle() {
     //Code on confirmation pop-up comes from https://www.tutorialsteacher.com/javascript/display-popup-message-in-javascript
     skipConf = window.confirm(["Are you sure you want to skip this riddle? You won't receive any points but we will tell you what the answer was!"]);
     if (skipConf) {
         let answerButtonSkip = document.getElementById('answer-btn');
             answerButtonSkip.disabled = true;
+        let nextButtonSkip = document.getElementById('next-btn');
+            nextButtonSkip.disabled = false;    
         alert('The answer to the riddle was: ' + riddleAnswer + ' Please click the "Next Riddle" button to proceed.');
         // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx <- needs reveal next button
     }
     
+}
+
+function nextRiddle() {
+    counter + 1;
+    riddleAnswer = getRiddle(rdmRiddleArray[counter]);
+    alert(riddleAnswer);
 }
 // reuses code from the Love maths project. 
 /**

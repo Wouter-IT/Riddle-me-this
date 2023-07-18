@@ -103,6 +103,7 @@ body {
     background-color: rgb(60, 153, 60);
     cursor: pointer;
 }
+/* Button disabled psuedoclass from https://stackoverflow.com/questions/14750078/style-disabled-button-with-css by user beerwin */
 .btn:disabled {
     background-color: rgb(104, 104, 104) !important;
     color: #fdfdfd !important;
