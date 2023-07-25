@@ -16,19 +16,33 @@ document.addEventListener("DOMContentLoaded", function () {
                         alert("Name must be filled out");
                         document.getElementById('uname-input').focus();
                         break;
-                    }
+                    } else if (containsWhitespace(input)){
+                        alert("A name cannot contain a 'space'!");
+                        let clearUnameInput = document.getElementById('uname-input');
+                        clearUnameInput.value = "";
+                        document.getElementById('uname-input').focus();
+                        break;
+                    } else {
                     createPlayer();
                     playGame();
                     break;
+                }
                 case "answer":
                     let answerInput = document.getElementById('answer-input').value;
                     if (answerInput === "") {
                         alert("An answer must be filled in");
                         document.getElementById('answer-input').focus();
                         break;
+                    } else if (containsOnlyWhitespace(answerInput)){
+                        alert("Your answer can not be only a 'space'!");
+                        let clearAnswerInput = document.getElementById('answer-input');
+                        clearAnswerInput.value = "";
+                        document.getElementById('answer-input').focus();
+                        break;
+                    } else {
+                        checkAnswer();
+                        break;
                     }
-                    checkAnswer();
-                    break;
                 case "skip":
                     skipRiddle(); 
                     break;
@@ -48,12 +62,18 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('uname-input').addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
             let input = document.getElementById('uname-input').value;
-            if (input === "") {
-                alert("Name must be filled out");
-            } else {
-                createPlayer();
-                playGame();
-            }
+                    if (input === "") {
+                        alert("Name must be filled out");
+                        document.getElementById('uname-input').focus();
+                    } else if (containsWhitespace(input)){
+                        alert("A name cannot contain a 'space'!");
+                        let clearUnameInput = document.getElementById('uname-input');
+                        clearUnameInput.value = "";
+                        document.getElementById('uname-input').focus();
+                    } else {
+                    createPlayer();
+                    playGame();
+                }
         }
     });
     // listens for the user to press "Enter" to submit their answer as opposed to clicking the button.
@@ -63,16 +83,39 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert('You have already answered correctly! Please proceed to the next riddle by clicking the "Next" button.');
             } else {
                 let answerInput = document.getElementById('answer-input').value;
-                if (answerInput === "") {
-                    alert("An answer must be filled in");
-                    document.getElementById('answer-input').focus();
-                } else {
+                    if (answerInput === "") {
+                        alert("An answer must be filled in");
+                        document.getElementById('answer-input').focus();
+                    } else if (containsOnlyWhitespace(answerInput)){
+                        alert("Your answer can not be only a 'space'!");
+                        let clearUnameInput = document.getElementById('answer-input');
+                        clearUnameInput.value = "";
+                        document.getElementById('answer-input').focus();
+                    } else {
                         checkAnswer();
                     }
-                }
             }
-        });
+        };
     });
+});
+// Code to check for whitespaces copied from https://codingbeautydev.com/blog/javascript-check-if-string-contains-whitespace/
+/**
+ * Checks if the input contains any whitespace.
+ */
+function containsWhitespace(str) {
+    return /\s/.test(str);
+}
+// code to check if a string is ONLY whitespace from: https://stackoverflow.com/questions/10261986/how-to-detect-string-which-contains-only-spaces
+/**
+ * Checks if the input contains only whitespace.
+ */
+function containsOnlyWhitespace(str) {
+    if (!str.replace(/\s/g, '').length) {
+        return true
+    } else {
+        return false;
+    }
+  }
 /**
  * Creates the player account and sets name (user input), score, amount of wrong answers to start positions.
  */
@@ -108,6 +151,8 @@ function playGame() {
     for (let i = 0; i < revealGame.length; i++) {
         revealGame[i].style.display = 'block';
     }
+    let nextButtonPG = document.getElementById('next-btn');
+            nextButtonPG.disabled = true;   
     console.log("2 - Game started");
     // Calls a function to "select" 5 random numbers and displays riddle on screen
     rdmRiddleArray = riddleSelection();
@@ -137,7 +182,6 @@ function checkAnswer() {
             // causes timer to stop ticking
             addSecond = 0;
             incrScore();
-            // let playerScore = document.getElementById('crt-score').innertHTML;
             let answerButtonString = document.getElementById('answer-btn');
             answerButtonString.disabled = true;
             let nextButtonString = document.getElementById('next-btn');
@@ -254,7 +298,7 @@ function pushToLeaderboard() {
     leaderboardArray.push(player);
     console.log("I've pushed player into array.");
     // Code to sort leaderboard Array from https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
-    leaderboardArray.sort((a, b) => (b.score > a.score) ? 1 : (b.score === b.score) ? ((b.wrongAnswers > a.wrongAnswers) ? -1 : 1) : -1 );
+    leaderboardArray.sort((a, b) => (b.score > a.score) ? 1 : (b.score === a.score) ? ((b.wrongAnswers > a.wrongAnswers) ? -1 : 1) : -1 );
     leaderboardArray.pop();
     alert(JSON.stringify(leaderboardArray));
     updateLeaderboard();
