@@ -124,6 +124,7 @@ function createPlayer() {
     player = new Player('', 0, 0);
     player.name = document.getElementById('uname-input').value;
     document.getElementById('pbox').style.visibility = 'visible';
+    document.getElementById('pbox').style.display = 'block';
     let currentUsername = document.getElementById('crt-uname');
     currentUsername.innerHTML = player.name;
     // Clears user input for when they return to this screen
@@ -268,6 +269,7 @@ function forfeitGame() {
             revealGame[i].style.display = 'none';
         }
         document.getElementById('pbox').style.visibility = 'hidden';
+        document.getElementById('pbox').style.display = 'none';
         let nextButtonForfeit = document.getElementById('next-btn');
             nextButtonForfeit.disabled = true;    
         resetPlayer();
@@ -443,6 +445,7 @@ function endGame() {
         revealGame[i].style.display = 'none';
     }
     document.getElementById('pbox').style.visibility = 'hidden';
+    document.getElementById('pbox').style.display = 'none';
     resetPlayer();
 }
 
