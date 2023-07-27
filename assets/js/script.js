@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     createPlayer();
                     playGame();
                     break;
-                }
+                    } /* falls through */
                 case "answer":
                     let answerInput = document.getElementById('answer-input').value;
                     if (answerInput === "") {
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     } else {
                         checkAnswer();
                         break;
-                    }
+                    } /* falls through */
                 case "skip":
                     skipRiddle(); 
                     break;
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         checkAnswer();
                     }
             }
-        };
+        }
     });
 });
 // Code to check for whitespaces copied from https://codingbeautydev.com/blog/javascript-check-if-string-contains-whitespace/
@@ -111,7 +111,7 @@ function containsWhitespace(str) {
  */
 function containsOnlyWhitespace(str) {
     if (!str.replace(/\s/g, '').length) {
-        return true
+        return true;
     } else {
         return false;
     }
