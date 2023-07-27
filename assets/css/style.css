@@ -386,7 +386,6 @@ body {
     }
     .logo {
         padding-top: 7px;
-        padding-left: 15px;
         margin-top: 0;
         width: 30px;
     }
@@ -456,12 +455,18 @@ body {
     .btn {
         font-size: 1rem;
     }
+    #uname-label {
+        font-size: 1rem;
+    }
+    #uname-input {
+        font-size: 1rem;
+    }
     #start-btn {
         font-size: 1.1rem;
         margin-top: 1vh;
         margin-bottom: 1vh;
-        width: 8vw;
-        height: 4vw;
+        width: 11vw;
+        height: 5vw;
     }
     #icon-credit {
         width: 100%;
@@ -476,7 +481,7 @@ body {
     }
     .game-area {
         position: absolute;
-        bottom: 22%;
+        bottom: 15%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 80%;
@@ -484,6 +489,9 @@ body {
     .input-area {
         bottom: -2%;
         padding-bottom: 0;
+    }
+    #answer-input {
+        width: 60%;
     }
     .playerscore-box {
         height: 15vh;
@@ -493,5 +501,27 @@ body {
     }
     .lead-box {
         height: 26vh;
+    }
+}
+@media screen and (max-width: 900px) {
+    .heading-container {
+        margin-top: 10px;
+    }
+    #greeting-header {
+        font-size: 1rem;
+    }
+    #greeting-text {
+        font-size: 0.61rem;
+    }
+    #uname-lable {
+        font-size: 0.7rem;
+    }
+    #uname-input {
+        font: 0.7rem;
+    }
+    #start-btn {
+        font-size: 1rem;
+        width: 17vw;
+        height: 4vh;
     }
 }
