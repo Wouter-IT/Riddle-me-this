@@ -474,7 +474,7 @@ body {
         margin-top: 20px;
     }
     .game-box {
-        height: 48vh;
+        height: 49vh;
     }
     #greeting-header {
         font-size: 1.3rem;
@@ -509,7 +509,7 @@ body {
         font-size: 1rem;
     }
     .lead-box {
-        height: 26vh;
+        height: 24vh;
     }
 }
 @media screen and (max-width: 600px) {
@@ -518,19 +518,97 @@ body {
     }
     #greeting-header {
         font-size: 1rem;
+        padding-top: 0.5vh;
     }
     #greeting-text {
-        font-size: 0.61rem;
+        font-size: 0.70rem;
     }
     #uname-label {
-        font-size: 0.7rem;
+        font-size: 0.63rem;
     }
     #uname-input {
-        font: 0.7rem;
+        font: 0.65rem;
     }
     #start-btn {
-        font-size: 1rem;
+        font-size: 0.95rem;
         width: 17vw;
         height: 4vh;
+    }
+}
+@media screen and (max-width: 500px) {
+    #greeting-text {
+        font-size: 0.62rem;
+    }
+}
+@media screen and (max-width: 400px) {
+    .lead-box {
+        height: 20vh;
+        bottom: -8vh;
+    }
+    #lead-header {
+        font-size: 1rem;
+    }
+    .lead-listing {
+        font-size: 0.62rem;
+        line-height: 1.5vh;
+    }
+    .game-box {
+        height: 52vh;
+    }
+    #greeting-text {
+        font-size: 0.60rem;
+    }
+}
+@media screen and (max-width: 375px) {
+    .heading-container {
+        height: 9vh;
+    }
+    #logo-text {
+        display: none;
+    }
+    .box {
+        padding: 13px;
+    }
+    .lead-box {
+        width: 80%;
+        height: 19vh;
+    }
+    #lead-header {
+        font-size: 0.8rem;
+    }
+    .lead-subheader{
+        font-size: 0.7rem;
+    }
+    .game-box {
+        width: 80%;
+        height: 56vh;
+    }
+}
+@media screen and (max-width: 360px) {
+    #greeting-header {
+        font-size: 0.95rem;
+    }
+    .lead-listing {
+        font-size: 0.60rem;
+    }
+}
+@media screen and (max-width: 320px) {
+    .heading-container {
+        margin-top: 0;
+    }
+    #greeting-header {
+        font-size: 0.8rem;
+    }
+    #greeting-text {
+        font-size: 0.53rem;
+    }
+    .lead-listing {
+        font-size: 0.50rem;
+    }
+    #uname-label {
+        font-size: 0.58rem;
+    }
+    #uname-input {
+        font-size: 0.58rem;
     }
 }
