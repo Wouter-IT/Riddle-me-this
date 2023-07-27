@@ -533,6 +533,7 @@ body {
         margin-right: 0.75vw;
     }
 }
+/* Screens below 600px width */
 @media screen and (max-width: 600px) {
     .heading-container {
         margin-top: 10px;
@@ -575,6 +576,7 @@ body {
         font-size: 0.7rem;
     }
 }
+/* Screens below 500px width */
 @media screen and (max-width: 500px) {
     body {
         font-size: 0.8rem;
@@ -601,6 +603,7 @@ body {
         top: 80%;
     }
 }
+/* Screens below 400px width */
 @media screen and (max-width: 400px) {
     .lead-box {
         height: 20vh;
@@ -634,6 +637,7 @@ body {
         top: 75%;
     }
 }
+/* Screens below 375px width */
 @media screen and (max-width: 375px) {
     body {
         font-size: 0.7rem;
@@ -683,6 +687,7 @@ body {
         font-size: 0.75rem;
     }
 }
+/* Screens below 360px and 320px width */
 @media screen and (max-width: 360px) {
     #greeting-header {
         font-size: 0.95rem;
