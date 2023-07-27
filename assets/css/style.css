@@ -318,7 +318,7 @@ body {
         padding-top: 2vh;
     }
     #greeting-text {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
         padding: 2vh 2vw;
     } 
     .riddle-icon{
@@ -423,8 +423,11 @@ body {
         font-size: 0.8rem;
         width: 100%;
     }
+    #uname-label {
+        font-size: 1rem;
+    }
     #uname-input {
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
     .lead-box {
         margin-right: 4vw;
@@ -455,12 +458,6 @@ body {
     .btn {
         font-size: 1rem;
     }
-    #uname-label {
-        font-size: 1rem;
-    }
-    #uname-input {
-        font-size: 1rem;
-    }
     #start-btn {
         font-size: 1.1rem;
         margin-top: 1vh;
@@ -478,6 +475,18 @@ body {
     }
     .game-box {
         height: 48vh;
+    }
+    #greeting-header {
+        font-size: 1.3rem;
+    }
+    #greeting-text {
+        font-size: 0.75rem;
+    }
+    #uname-label {
+        font-size: 0.85rem;
+    }
+    #uname-input {
+        font-size: 0.85rem;
     }
     .game-area {
         position: absolute;
@@ -503,7 +512,7 @@ body {
         height: 26vh;
     }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 600px) {
     .heading-container {
         margin-top: 10px;
     }
@@ -513,7 +522,7 @@ body {
     #greeting-text {
         font-size: 0.61rem;
     }
-    #uname-lable {
+    #uname-label {
         font-size: 0.7rem;
     }
     #uname-input {
