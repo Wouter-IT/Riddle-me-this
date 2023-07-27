@@ -8,9 +8,9 @@ The Riddle me this quiz is a game challenging the player to answer 5 riddles in 
 Do you believe you got what it takes to conquer the leaderboard?
 Let's find out!
 
-* the website of* <a href="https://wouter-it.github.io/Riddle-me-this/" target="_blank">*Riddle Me This!*</a>.
+* the website of <a href="https://wouter-it.github.io/Riddle-me-this/" target="_blank">*Riddle Me This!*</a>.
 
-![image of the FakeFairytale Website on different devices.](assets/images/readme/ffbm-screens.jpg)
+![image of the Riddle me this Website on different devices.](assets/images/readme/riddle-me-this-screens.jpg)
 
 # Contents
 - [User Experience UX](<#user-experience-ux>)
