@@ -519,11 +519,11 @@ body {
         margin: 1vh 2vw 1vh 2vw;
     }
     #answer-label {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     #answer-input {
-        font-size: 1.2rem;
-        line-height: 1.2rem;
+        font-size: 1rem;
+        line-height: 1rem;
     }
     .btn {
         font-size: 0.9rem;
@@ -545,15 +545,31 @@ body {
         font-size: 0.70rem;
     }
     #uname-label {
-        font-size: 0.63rem;
+        font-size: 0.75rem;
     }
     #uname-input {
-        font: 0.65rem;
+        font-size: 0.75rem;
     }
     #start-btn {
         font-size: 0.95rem;
         width: 17vw;
         height: 4vh;
+    }
+    #player-header {
+        font-size: 0.85rem;
+    }
+    #pbox h3 {
+        font-size: 0.70rem;
+    }
+    #riddle-image{
+        margin-top: -40px;
+    }
+    #answer-label {
+        font-size: 0.8rem;
+    }
+    #answer-input {
+        font-size: 0.8rem;
+        line-height: 0.8rem;
     }
 }
 @media screen and (max-width: 500px) {
@@ -578,6 +594,14 @@ body {
     }
     #greeting-text {
         font-size: 0.60rem;
+    }
+    .btn {
+        font-size: 0.9rem;
+        width: 25vw;
+        height: 6vh;
+        margin-left: 0.75vw;
+        margin-right: 0.75vw;
+        margin-bottom: 0.75vh;
     }
 }
 @media screen and (max-width: 375px) {
