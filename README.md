@@ -63,26 +63,24 @@ Riddle me this has 1 page with 2 distinct different "screens". The page alters b
 
 Upon answering a riddle correctly the answer button is disabled and the "next riddle" button pops up that allows the user to refresh the page and start up the next riddle. Upon completing the 5th riddle the user is brought back to the greeting/introduction screen.  
 
-INCLUDE SCREENSHOT OF THE TWO SCREENS SIDE BY SIDE
+![Screenshot of greeting and game pages.](assets/images/readme/intro-game-screens.jpg)
 
 [Back to top](<#contents>)
 
 ## Design & Color Scheme
 
 ### Typography
-The typography that was chosen for this project was INSERT CORRECT FONTS<a href="https://fonts.google.com/specimen/Bebas+Neue" target="_blank">Bebas Neue</a> for the headers and <a href="https://fonts.google.com/specimen/Montserrat" target="_blank">Montserrat</a> with a fall-back on sans-serif as body text. Bebas Neue was chosen because it already was the main font of the FakeFairytale brand and it suits the role as header well. It is described ad bold and draws in the eyes to the headers to help guide a visitor through the page. Montserrat was chose as body and navigation text based on the recommendation from <a href="https://typ.io/fonts/bebas_neue#:~:text=Bebas%20Neue%20is%20a%20sans,Calluna%2C%20Avenir%20and%20Playfair%20Display." target="_blank">Typ.io</a> as a suitable match. It also has a clean look that's easy to read and thus suited for explanatory texts.
-
-ABOVE STILL REQUIRES WORK
+The typography that was chosen for this project was <a href="https://fonts.google.com/specimen/Josefin+Sans?query=josefin+sans" target="_blank">Josefin Sans</a> for the headers and <a href="https://fonts.google.com/specimen/Lato?query=lato" target="_blank">Lato</a> with a fall-back on sans-serif as body text. Josefin Sans was chosen because it has a playful style to it which matches the atmosphere the game is going for. It helps to set the correct mood/mindset for the player and helps sell the overall game on the website. Lato was chose as body and navigation text based on the recommendation from <a href="https://www.figma.com/google-fonts/josefin-sans-font-pairings/#:~:text=Josefin%20Sans%20font%20pairings,One%2C%20Lato%2C%20and%20Playfair." target="_blank">Figma</a> as a suitable match. It also has a clean look that's easy to read and thus suited for explanatory and riddle text.
 
 [Back to top](<#contents>)
 
 ### Color Palette
 
-The color scheme for the website can be described as "striking" and originates from the desire to make the page memorable (both visualy as well as a fun game experience), playful, yet also functional. The colours picked aren't too bright to remain easy on the eyes and not drawing attention away from the game. The white colour was chosen to break up the color further and to ensure the text is easily readable against the background. Overall the color scheme serves its purpose without sacrificing anything on readability and accessiblity.
+The color scheme for the website can be described as "striking" and originates from the desire to make the page memorable (both visualy as well as a fun game experience), playful, yet also functional. The colours picked aren't too bright to remain easy on the eyes and not drawing attention away from the game. The white colour was chosen to break up the color further and to ensure the text is easily readable against the background. Overall the color scheme serves its purpose without sacrificing anything on readability and accessiblity. In the end it was decided to not include Cerulean in the final website.
 
-![screenshot of the green-white contrast and black-white contrast for the website](assets/images/readme/contrast-checker.png)
+![screenshot of the purple-white contrast and black-white contrast for the website](assets/images/readme/contrast-checker.jpg)
 
-![screenshot of color palatte, feldgrau, white, penn red, jet black](assets/images/readme/color-palate.png)
+![screenshot of website color palatte](assets/images/readme/color-palette.png)
 
 [Back to top](<#contents>)
 
