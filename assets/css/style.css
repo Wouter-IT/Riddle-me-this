@@ -587,16 +587,15 @@ body {
         margin-left: 2px;
     }
     .game-area {
-        position: absolute;
         bottom: 0;
         top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
     }
     .riddle-icon {
         height: 100px;
         width: 100px;
+    }
+    .gametext {
+        font-size: 0.8rem;
     }
     #answer-area {
         top: 80%;
@@ -623,13 +622,22 @@ body {
     .btn {
         font-size: 0.9rem;
         width: 25vw;
-        height: 6vh;
+        height: 5vh;
         margin-left: 0.75vw;
         margin-right: 0.75vw;
         margin-bottom: 0.75vh;
     }
+    .game-area {
+        top: 45%;
+    }
+    #answer-area {
+        top: 75%;
+    }
 }
 @media screen and (max-width: 375px) {
+    body {
+        font-size: 0.7rem;
+    }
     .heading-container {
         height: 9vh;
     }
@@ -652,6 +660,27 @@ body {
     .game-box {
         width: 80%;
         height: 56vh;
+    }
+    .playerscore-box {
+        height: 12vh;
+        width: 20%;
+        margin-left: 2vw;
+    }
+    .player-data {
+        margin-top: 1px;
+        margin-left: 2px;
+    }
+    #player-header {
+        font-size: 0.7rem;
+    }
+    #pbox h3 {
+        font-size: 0.65rem;
+    }
+    .game-area {
+        top: 47%;
+    }
+    #riddle-text {
+        font-size: 0.75rem;
     }
 }
 @media screen and (max-width: 360px) {
