@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('uname-input').focus();
-    // iniitializes player to store first input in.
-    // Player('', 0, 0);
     for (let button of buttons) {
         button.addEventListener("click", function () {
             switch (this.getAttribute("data-type")) {
@@ -130,7 +128,6 @@ function createPlayer() {
     // Clears user input for when they return to this screen
     let clearInput = document.getElementById('uname-input');
     clearInput.value = "";
-    console.log("1 - Player created");
 }
 /**
  * Creates the player account object including name, score, amount of wrong answers
@@ -154,13 +151,11 @@ function playGame() {
     }
     let nextButtonPG = document.getElementById('next-btn');
             nextButtonPG.disabled = true;   
-    console.log("2 - Game started");
     // Calls a function to "select" 5 random numbers and displays riddle on screen
     rdmRiddleArray = riddleSelection();
-    //Gets a new riddle a puts it on screen. Then stores the answer value of the riddle object in the riddleAnswer variable which is declared at the top of this document.
+    // Gets a new riddle a puts it on screen. Then stores the answer value of the riddle object in the riddleAnswer variable which is declared at the top of this document.
     riddleCounter = 0;
     riddleAnswer = getRiddle(rdmRiddleArray[riddleCounter]);
-    alert(riddleAnswer);
     // sets the cursor to be in the box, so you can immediately type your answer without clicking on it first.
     document.getElementById('answer-input').focus();
     // causes timer to start ticking
@@ -179,7 +174,7 @@ function checkAnswer() {
     clearInput.value = "";
     if (inputString) {
         if (userAnswer.toLowerCase() === riddleAnswer) {
-            alert("this answer is correct! (string)");
+            alert("Your answer is correct!");
             // causes timer to stop ticking
             addSecond = 0;
             incrScore();
@@ -189,14 +184,14 @@ function checkAnswer() {
             nextButtonString.disabled = false;   
         
         } else {
-            alert("this answer is incorrect! (string)");
+            alert("Your answer is incorrect!");
             incrWrongAnswers();
         }
     } else {
         // Codeline below created from theory on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
         let parsed = parseInt(userAnswer);
         if (parsed === riddleAnswer) {
-            alert("this answer is correct! (number)");
+            alert("Your answer is correct!");
             // causes timer to stop ticking
             addSecond = 0;
             incrScore();
@@ -206,7 +201,7 @@ function checkAnswer() {
             let nextButtonInt = document.getElementById('next-btn');
             nextButtonInt.disabled = false; 
         } else {
-            alert("This answer is incorrect! (number)");
+            alert("Your answer is incorrect!");
             incrWrongAnswers();
         }
     }
@@ -242,7 +237,6 @@ function incrScore() {
     let oldScore = parseInt(document.getElementById('crt-score').innerText);
     document.getElementById('crt-score').innerText = (oldScore + 500 + spdBonus);
     player.score = oldScore + 500 + spdBonus;
-    console.log(player.score);
 }
 // reuses code from Love Maths project.
 /**
@@ -252,7 +246,6 @@ function incrWrongAnswers() {
     let oldWrongAnswers = parseInt(document.getElementById('crt-wa').innerText);
     document.getElementById('crt-wa').innerText = ++oldWrongAnswers;
     player.wrongAnswers = oldWrongAnswers;
-    console.log(player.wrongAnswers);
 }
 /**
  * Asks player to confirm forfeit. If yes, proceeds hide all elements related to the game area and reveals greeting/introduction elements . Then runs the reset player function to clear score, user input and wrong answers.
@@ -279,14 +272,11 @@ function forfeitGame() {
  * Resets player and clears score, user input and wrong answers.
  */
 function resetPlayer() {
-    console.log('resetting player');
     document.getElementById('crt-score').innerText = '0';
     document.getElementById('crt-wa').innerText = '0';
     let answerButton = document.getElementById('answer-btn');
     answerButton.disabled = false;
     document.getElementById("next-btn").innerHTML = 'Next<br>Game';
-    console.log(player.score);
-    console.log(player.wrongAnswers);
     riddleCounter = 0;
     // causes timer to stop ticking
     addSecond = 0;
@@ -298,11 +288,9 @@ let leaderboardArray = new Array(10);
  */
 function pushToLeaderboard() {
     leaderboardArray.push(player);
-    console.log("I've pushed player into array.");
     // Code to sort leaderboard Array from https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
     leaderboardArray.sort((a, b) => (b.score > a.score) ? 1 : (b.score === a.score) ? ((b.wrongAnswers > a.wrongAnswers) ? -1 : 1) : -1 );
     leaderboardArray.pop();
-    alert(JSON.stringify(leaderboardArray));
     updateLeaderboard();
 }
 /**
@@ -311,7 +299,6 @@ function pushToLeaderboard() {
 function updateLeaderboard() {
     for (let i = 0; i < leaderboardArray.length; i++) {
         let entry = leaderboardArray[i];
-        console.log(entry);
         switch (i) {
             case 0:
                 if (entry === undefined) {
@@ -414,14 +401,12 @@ function nextRiddle() {
     ++riddleCounter;
     let clearInput = document.getElementById('answer-input');
     clearInput.value = "";
-    console.log('Riddle counter is on' + riddleCounter);
     if (riddleCounter === 4)
         document.getElementById("next-btn").innerHTML = 'End<br>Game';
     if (riddleCounter >=5) {
         endGame();
     } else {
     riddleAnswer = getRiddle(rdmRiddleArray[riddleCounter]);
-    alert(riddleAnswer);
     let answerButtonNext = document.getElementById('answer-btn');
     answerButtonNext.disabled = false;
     let nextButtonNext = document.getElementById('next-btn');
@@ -475,7 +460,6 @@ function riddleSelection() {
     num5 = checkDouble(num5, rdmNrsArray);
     rdmNrsArray.push(num5);
 
-    alert(JSON.stringify(rdmNrsArray));
     return rdmNrsArray;
 }
 
@@ -483,7 +467,6 @@ function riddleSelection() {
  * Checks for doubles numbers in the rdmNrsArray
  */
 function checkDouble(rdmNum, numArray) {
-    console.log("4 - Check for double started");
     let containsDouble = numArray.includes(rdmNum);
     while (containsDouble) {
         rdmNum++;
@@ -509,7 +492,7 @@ function getRiddle(riddleNr) {
     let replaceHint = document.getElementById('riddle-hint');
     replaceHint.innerHTML = selected.hint;
     let answer = selected.answer;
-    console.log("5 - Riddle retreived for play");
+
     return answer;
 }
 
