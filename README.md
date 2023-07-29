@@ -62,7 +62,7 @@ The final design of the website varies slightly from the Figma wireframes in som
 
 ## Site Structure
 
-Riddle me this has 1 page with 2 distinct different "screens". The page alters between these screens as the user plays the game and completes, or gives up on runs. The first screen displays a greeting and instruction. It introduces the user to the game and attempts to motivate the user to become a player. This happens when the user fills in a username and presses "Enter" or the "Start" button. On the right-hand-side there is a leaderboard dislaying the scores of players who have come before, which can include runs they have completed themselves in the past ass wel. Upon registering a username the introduction/greetings text and the username input field are hidden from view and the game screen, the second screen of the two, is revealed. This screen displays an image, the riddle text and a hint as to what type of answer we are looking for, for each of the riddles. It alsp inclused a button for answering, skipping and forfeitting the riddle. On the left-hand-side the user can see their current username, score and the amount of wrong answers they have given. 
+Riddle me this has 1 page with 2 distinct different "screens". The page alters between these screens as the user plays the game and completes, or gives up on runs. The first screen displays a greeting and instruction. It introduces the user to the game and attempts to motivate the user to become a player. This happens when the user fills in a username and presses "Enter" or the "Start" button. On the right-hand-side there is a leaderboard dislaying the scores of players who have come before, which can include runs they have completed themselves in the past as wel. Upon registering a username the introduction/greetings text and the username input field are hidden from view and the game screen, the second screen of the two, is revealed. This screen displays an image, the riddle text and a hint as to what type of answer we are looking for, for each of the riddles. It alsp inclused a button for answering, skipping and forfeitting the riddle. On the left-hand-side the user can see their current username, score and the amount of wrong answers they have given. 
 
 Upon answering a riddle correctly the answer button is disabled and the "next riddle" button pops up that allows the user to refresh the page and start up the next riddle. Upon completing the 5th riddle the user is brought back to the greeting/introduction screen.  
 
@@ -91,45 +91,48 @@ The color scheme for the website can be described as "striking" and originates f
 
 ## Current Features
 
-### Logo & Navigation
-- Located at the very top of every page is a fully responsive navigation menu that allows for easy navigation across the site. 
-- The FakeFairytale gnome logo is also equipped with a link that returns the user to the home page, as is common on many websites. 
+### Logo 
+- Located at the very top of every page is the logo and name of the game.  
+- Immediately tells the user on what site they are.
 - The logo image disappears on smaller devices as to not take up too much space when limited is available.
 
-![screenshot of nav bar](assets/images/readme/nav-bar.jpg)
+![screenshot of logo](assets/images/readme/nav-bar.jpg)
 
 [Back to top](<#contents>)
 
-### Hero
-- Located just below the navigation is an image and welcome message. The image helps set the tone for the page and is one of the most popular maps made by FakeFairytale. It is blurred out so as to no distract from the message.
-- The welcome message immediately states the value the website provides. It is aimed at making you a better map-maker and helps the visitor understand the intent and purpose of the website.
+### Introduction & Greetings
+- Located just below the Logo is the introduction and greeting text. It explains the game and what is expected of the player. It is closed off with an enticing phrase to motivate the user to start playing.
+- The opening sentence is designed to immediately convey the core information of the game, so a user can decide straight away if they want to remain on the page or not.
 
 ![screenshot of website hero image](assets/images/readme/hero.JPG)
 
 [Back to top](<#contents>)
 
-### About
-- A two collumn about section introduces the visitor to the FakeFairytale brand.
-- The left-hand text column states the core problems the visitor is experiencing in order captivate them and capture their attention. It then proceeds to introduce the brand to those unfamiliar.
-- Two quick navigation buttons help guide the visitor to their destination. They are designed to specifically help the visitor that already knows what they are visiting the page for.
-- The right-hand-side video introduces those unfamiliar to the FakeFairytale YouTube Channel with one of it's most popular videos. It also provide knowledge for those who may already know/have Dungeondraft but aren't proficient with it yet.
+### User registration
+- A single text input field with a lable clearly stating where to enter your username when you want to participate.
+- The CTA is green to clearly stand out from the environment, making it easy to find an drawing the users attention to the bottom of the page.
+- Username input field only takes 9 characters as to not cause UX issues when a player picks a very long name.
+- The username is not allowed to be emppty or just a "space", and must require at least 1 character.
 
 ![screenshot of the about section](assets/images/readme/about-section.jpg)
 
 [Back to top](<#contents>)
 
-### Sign-up form
-- A sign-up form lets the visitor register for a mail list that will provide updates on what is happening with the FakeFairytale Brand. It is designed for those who are hooked by the content so far and would like to learn more over the coming period.
-- Currently, there is no actual mail list, nor is the form hooked up to any sort of registration system.
+### Leaderboard
+- A leaderboard clearly indicates scores of previous players. Also puts an emphesis on the competitive nature of the game. 
+- Contains the top 10 player runs and their score and sorts them based on score from high to low.
+- Bumps off the lowest score after a new score has been achieved.
+- Currently, the leaderboard is not saved in a database and will reset upon refreshing the browser.
 
 ![screenshot of sign-up form](assets/images/readme/sign-up-form.jpg)
 
 [Back to top](<#contents>)
 
-### Footer
-- The site footer is always located at the bottom of the page and contains both the social media links & an e-mail address visitors can contact.
-- The Social Media links are enhanced with icons and open in separate tabs when clicked. They're there for those who do not wish to sign up for a newsletter or are looking to do so through a different medium.
-- Email is added to allow people to contact FakeFairytale directly.
+### Player Score
+- Box on the left-hand-side of the screen during gameplay to provide information to the player.
+- Invisible onthe greeting screen as the information is not required at that time. Becomes visible during play and turns invisible upon completing a run.
+- Tracks the Username input from the user, their score which updates after each riddle completed successfully, and the amount of wrong answers provided.
+- Wrong answers tick up every time an incorrect input is given. However, the input field has to contain at least a character for it to register as "wrong".
 
 ![screenshot of website footer](assets/images/readme/footer.jpg)
 
