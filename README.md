@@ -75,7 +75,7 @@ Upon answering a riddle correctly the answer button is disabled and the "next ri
 ### Typography
 The typography that was chosen for this project was <a href="https://fonts.google.com/specimen/Josefin+Sans?query=josefin+sans" target="_blank">Josefin Sans</a> for the headers and <a href="https://fonts.google.com/specimen/Lato?query=lato" target="_blank">Lato</a> with a fall-back on sans-serif as body text. Josefin Sans was chosen because it has a playful style to it which matches the atmosphere the game is going for. It helps to set the correct mood/mindset for the player and helps sell the overall game on the website. Lato was chosen as body and navigation text based on the recommendation from <a href="https://www.figma.com/google-fonts/josefin-sans-font-pairings/#:~:text=Josefin%20Sans%20font%20pairings,One%2C%20Lato%2C%20and%20Playfair." target="_blank">Figma</a> as a suitable match. It also has a clean look that's easy to read and thus suited for explanatory and riddle text.
 
-[Back to top](<#contents>)
+[Back to top](<#contents>) 
 
 ### Color Palette
 

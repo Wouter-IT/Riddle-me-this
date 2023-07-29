@@ -20,7 +20,7 @@ The JS Hint error is caused by the use of outer scope variables in functions con
 
 ### Chrome Console Error
 
-In the deployed version of the site the error below pops up. This is caused by github.io which disabled support for FLoC by default. It does not influence website performance in any way according to [PositionIsEverything](https://www.positioniseverything.net/error-with-permissions-policy-header-unrecognized-feature-interest-cohort./). The error message can be prevented by disabling FLoC in Chrome.
+In the deployed version of the site the error below pops up. This is caused by github.io which disabled support for FLoC by default. It does not influence website performance in any way according to [PositionIsEverything](https://www.positioniseverything.net/error-with-permissions-policy-header-unrecognized-feature-interest-cohort./). The error message can be prevented by disabling FLoC in Chrome. 
 
 ![screenshot floc console error](assets/images/testing/floc-error.png)
 

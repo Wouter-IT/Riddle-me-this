@@ -109,7 +109,7 @@ function containsOnlyWhitespace(str) {
     }
   }
 /**
- * Creates the player account and sets name (user input), score, amount of wrong answers to start positions.
+ * Creates  the player account and sets name (user input), score, amount of wrong answers to start positions.
  */
 let player;
 function createPlayer() {
@@ -427,7 +427,6 @@ function endGame() {
     document.getElementById('pbox').style.display = 'none';
     resetPlayer();
 }
-
 let rdmRiddleArray = [];
 // reuses code from the Love maths project. 
 /**
@@ -456,7 +455,6 @@ function riddleSelection() {
 
     return rdmNrsArray;
 }
-
 /**
  * Checks for doubles numbers in the rdmNrsArray
  */
@@ -472,7 +470,6 @@ function checkDouble(rdmNum, numArray) {
     }
     return rdmNum;
 }
-
 /**
  * Gets a riddle from the riddles array and displays it on screen.
  */
@@ -489,7 +486,6 @@ function getRiddle(riddleNr) {
 
     return answer;
 }
-
 // Code for timer derived from https://linuxhint.com/javascript-count-up-timer/
 let seconds = 0;
 let addSecond = 0;
@@ -499,7 +495,6 @@ function upTimer() {
     document.getElementById("countup").innerHTML = seconds;
 
 }
-
 // Array of objects that stores all riddle objects; includes(id, image, text, answer and hint)
 let riddle = [{
     id: 0,
