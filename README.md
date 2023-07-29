@@ -21,15 +21,17 @@ Let's find out!
     - [Color Palatte](<#color-palette>)
 - [Features](<#features>)
   - [Current Features](<#current-features>)  
-    - [Logo & Navigation](<#logo--navigation>)
-    - [Hero](<#hero>)
-    - [About](<#about>)
-    - [Sign-up form](<#sign-up-form>)
-    - [Footer](<#footer>)
-    - [Confirmation message](<#confirmation-message>)
-    - [Tutorial](<#tutorial>)
-    - [Tutorial Video](<#tutorial-video>)
-    - [Maps](<#maps>)
+    - [Logo](<#logo>)
+    - [Introduction & Greetings](<#introduction--greetings>)
+    - [User Registration](<#user-registration>)
+    - [Leaderboard](<#leaderboard>)
+    - [Player Score](<#player-score>)
+    - [Riddle Image](<#riddle-image>)
+    - [Riddle text and Hint](<#riddle-text-and-hint>)
+    - [Answering riddles](<#answering-riddles>)
+    - [Timer](<#timer>)
+    - [Buttons](<#buttons>)
+    - [Images credit](<#images-credit>)
   - [Future Features](<#future-features>)
 - [Technologies & Tools used](<#technologies--tools-used>)
 - [Testing](<#testing>)
@@ -113,6 +115,7 @@ The color scheme for the website can be described as "striking" and originates f
 - The CTA is green to clearly stand out from the environment, making it easy to find an drawing the users attention to the bottom of the page.
 - Username input field only takes 9 characters as to not cause UX issues when a player picks a very long name.
 - The username is not allowed to be emppty or just a "space", and must require at least 1 character.
+- Is selected immediately upon opening the page so a user can provide a username without having to select the field first.
 
 ![screenshot of the about section](assets/images/readme/about-section.jpg)
 
@@ -138,35 +141,62 @@ The color scheme for the website can be described as "striking" and originates f
 
 [Back to top](<#contents>)
 
-### Confirmation message
-- The confirmation page provides a message to let the visitor know their action of filling in the form has been successful. It also helps them understand they can now navigate to another page if so desired.
+### Riddle image
+- Situated in the middle of the screen, draws in the players attention.
+- A unique image for each riddle that provides visual feedback on the riddle and what it entails.
+- Often directly associated with the text of the riddle, however, not tied to the answer of the riddle as to not provide the player with an obvious clue.
+- Increases visual appeal of the game as wel as memorable riddles.
 
 ![screenshot of confirmation message](assets/images/readme/confirmation.jpg)
 
 [Back to top](<#contents>)
 
-### Tutorial
-- An easy-to-follow step-by-step guide to downloading DD. Fully responsive to align below each other when viewing on smaller devices.
-- Designed to help the visitor find their way through the installation process of DD, which can be a bit confusing at times.
-- The final step in the process helps guide the visitor to the video below.
+### Riddle text and hint
+- Directly below the riddle image is the explanatory text describing the riddle.
+- Key element for the game as it explains the riddle the player needs to deduce their answer from.
+- A hint tells the player the type of answer that is required to solve the riddle. This to reduce complexity and along with the introduction text guide the players to apply a specific style of answers without additional unnecessary text.
+- About 25% of the riddles require a number as answer, the hint will help indicate that by asking for a number. 
 
 ![screenshot of dungeondraft installation guide](assets/images/readme/tutorial.JPG)
 
 [Back to top](<#contents>)
 
-### Tutorial Video
-- Underneath the DD installation Tutorial there is a special video gaimed at beginners in the DD software environment. 
-- The video allows the visitor to immediately start their learnig journey without having to switch websites.
+### Answering riddles
+- Underneath the text players have the answer field to input their guess for a specific riddle.
+- An answer has to contain at least 1 character, otherwise it throws an alert notifying the player of this fact and preventing accidental wrong answers.
+- Before checking the answer, the usr input it turned into small letters in order to account for potential capitalisation.
+- Checks the input of the player with the answer stored in the riddle object, if they match the player score 500 points. Additional points can be gained from answering a riddle as fast as possible, as explained in the next feature.
+- Is selected immediately upon starting the game/proceeding to the next riddle so a player can provide an answer without having to select the field first.
 
 ![screenshot of the get started video](assets/images/readme/get-started.jpg)
 
 [Back to top](<#contents>)
 
-### Maps
-- On this page, the visitor finds an overview of maps available for download.
-- Designed to give an easy birds-eye view of the options available with a clear call to action if they want to download the maps. Also provides basic information about the map.
-- Can easily be expanded upon.
-- The download buttons are direct download links that allow for immediate downloading without any more user input.
+### Timer
+- Purposfully right below the answer input field to increase pressure on the player while answering a riddle.
+- Counts up from 0 upon starting a new riddle, pauses after answering and resets upon starting the nnext riddle.
+- Provides additional points if answered within a specific time: Within 10 seconds adds 250 points, between 10 to 20 adds 200 points, between 20 and 40 adds 100, between 40 and 90 adds 50 points.
+- Besides pressure it also demotivates cheating behaviour by looking up answers to riddles and rewards being a skillsful riddle solver.
+
+![screenshot of map overview page](assets/images/readme/maps.jpg)
+
+[Back to top](<#contents>)
+
+### Buttons
+- Four colored buttons to allow the player to navigate the game.
+- Distinctly different colors to make them stand out and to inform the player that each button as a different "type" of action attached to it. Green to further proceed in the game (Start, submit, next and end game after the final riddle.) Yellow to skip a riddle. Red to forfeit a run. Grey to indicate a button cannot be ineracted with.
+- Submit is the first button because it is the desired input from the player (a guess to the riddle). It can be clicked or activated by pressing "Enter" after filling in an answer. Button is disabled upon answering correctly, preventing a player to score additional points by repeating the same answer.
+- Skip allows a player to skip the riddle if they don't know the answer but do want to proceed with their run. Upon skipping the player receives an alert with the answer, and instruction to click on the next riddle button. The sumbit button is disabled and the Next riddle button enabled upon clicking skip to prevent scoring points from the answer of the riddle.
+- Forfeit allows the user to end their run. Upon clicking it verifies if this was the players intended action by use of an alert. If the player again confirms they desire to end the run they are brought back to the introduction screen. Their score is pushed to the leaderboard, and all player data is reset so the player can start a new run if they so desire. 
+
+![screenshot of map overview page](assets/images/readme/maps.jpg)
+
+[Back to top](<#contents>)
+
+### Images credit
+- At the bottom of the screen, below the buttons.
+- Provides a credit to the creator of the images used for the game.
+- Contains a link to the page of the creator of the images.
 
 ![screenshot of map overview page](assets/images/readme/maps.jpg)
 
