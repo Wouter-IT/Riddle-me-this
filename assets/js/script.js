@@ -31,12 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         alert("An answer must be filled in");
                         document.getElementById('answer-input').focus();
                         break;
-                    } else if (containsOnlyWhitespace(answerInput)){
-                        alert("Your answer can not be only a 'space'!");
-                        let clearAnswerInput = document.getElementById('answer-input');
-                        clearAnswerInput.value = "";
-                        document.getElementById('answer-input').focus();
-                        break;
                     } else {
                         checkAnswer();
                         break;
