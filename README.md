@@ -39,12 +39,10 @@ Let's find out!
   - [How to deploy the project yourself](<#how-to-deploy-the-project-yourself>)
   - [Copy repo to GitHub](<#to-copy-the-repository-in-github>)
   - [Create local clone](<#to-create-a-local-clone-of-this-project>)
-- [Comments](<#comments>)
 - [Credits](<#credits>)
   - [Content](<#content>)
   - [Media](<#media>)
 - [Acknowledgements](<#acknowledgements>)
-- [Sign-off](<#sign-off>)
 
 # User Experience UX
 
@@ -167,6 +165,7 @@ The color scheme for the website can be described as "striking" and originates f
 - Before checking the answer, the usr input it turned into small letters in order to account for potential capitalisation.
 - Checks the input of the player with the answer stored in the riddle object, if they match the player score 500 points. Additional points can be gained from answering a riddle as fast as possible, as explained in the next feature.
 - Is selected immediately upon starting the game/proceeding to the next riddle so a player can provide an answer without having to select the field first.
+- Provides an alert notifying the player if their answer was correct/incorrect. If incorrect, it clears the input and sets focus to the input field so the player can start typing again.
 
 ![screenshot of the answer input field](assets/images/readme/feature-riddle-answers.png)
 
@@ -203,12 +202,11 @@ The color scheme for the website can be described as "striking" and originates f
 [Back to top](<#contents>)
 
 ## Future Features
-- A sticky navigation and footer bar to ensure navigation & Social Media links are always available.
-- A "Backto top" button in the bottom right corner of each page to ease navigation.
-- Make sure the Sign-up Form actually registers applicants and pushes data to a server.
-- Back to home button on the confirmation screen.
-- Additional Maps to download on the Maps page with the option to donate towards the creator.
-- Support for <350px width screens.
+- Ability to immediately start a new run after forfeitting your current run without having to input a new username.
+- Leaderboard database to allow playing vs other people on their own devices.
+- Feedback for correct/incorrect answers that do not use the browser alert system.
+- Wrong answers count in the leaderboards.
+- Hint buttons that provides a clue to the answer of the riddle at the cost of points.
 
 [Back to top](<#contents>)
 
@@ -231,7 +229,7 @@ Please refer to the testing document [**_here_**](TESTING.md) for more informati
 
 ### **How to deploy the project yourself**
 The website was deployed to GitHub pages. In order to replicate the website in your own environment please follow the steps below:
-  1. In the GitHub repository which you can find through [this link](https://github.com/Wouter-IT/maps-tutorial) navigate to the **Settings** tab.
+  1. In the GitHub repository which you can find through [this link](https://github.com/Wouter-IT/Riddle-me-this) navigate to the **Settings** tab.
   ![screenshot of GitHub repository with settings highlighted](assets/images/readme/step1.jpg)
   2. In settings, navigate to the **Pages** tab on the left-hand side in the section "Code and automation".
   3. Under **Source**, set the branch to **main** and then click **save**.
@@ -242,7 +240,7 @@ The website was deployed to GitHub pages. In order to replicate the website in y
 
 ### **To copy the repository in GitHub**
 A copy of the repository can be made by forking the GitHub account. You can view and alter this copy without it affecting the original repository. You can fork the repository by;
-1. Logging in to your GitHub and locate the [repository](https://github.com/Wouter-IT/maps-tutorial).
+1. Logging in to your GitHub and locate the [repository](https://github.com/Wouter-IT/Riddle-me-this).
 2. On the top right corner of the page is a button called **'Fork'**. Clicking on the button creates a copy of the original repository in your own GitHub Account.
 ![screenshot on how to fork in github](assets/images/readme/fork.jpg)
 
@@ -260,36 +258,33 @@ You can also create a local copy of the project using the following steps:
 
 [Back to top](<#contents>)
 
-# Comments
-
-IF ANY, OTHERWISE REMOVE
-
-[Back to top](<#contents>)
-
 # Credits
 
 ## Content
-- The [Developer Mozilla Webpage on Wrapping text](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Text/Wrapping_Text) for "the overflow-wrap: break-word" in order to keep the paragrahp form interferring with the video content on the right of it.
 - My Fonts from [Google Fonts](https://fonts.google.com/).
-- [Typ.io](https://typ.io/) for finding a maching font to Bebas Neue.
+- [Figma](https://www.figma.com/) for finding a maching font to Josefin Sans.
 - [Coolors.co](https://coolors.co/) for the color palatte.
-- [CloudConvert](https://cloudconvert.com/jpg-to-webp) for converting images to webp format to reduce loading times.
-- [Font Awesome](https://fontawesome.com/) for implementing Icons on the website.
 - Credits to the [Wawawoods project README by Ewan Colquhoun](https://github.com/EwanColquhoun/wawaswoods) to help create and structure my own README. This was a tremendous help.
-- The code for the Favicon found on [W3Schools](https://www.w3schools.com/html/html_favicon.asp).
-- The code that changes the cursor upon hovering over a button & creating a button that leads you to another page on the Website from [Scaler](https://www.scaler.com/topics/how-to-make-a-button-link-to-another-page-in-html/)
-- Sections of my own code form the Love Running Walkthrough Project that I have repurposed to suit my needs for this website: Footer & Google Icons Script.
-- [Tutorialspoint.com](https://www.tutorialspoint.com/how-to-trigger-a-file-download-when-clicking-an-html-button-or-javascript#:~:text=Use%20the%20download%20attribute%20with,as%20a%20file%20download%20button) for the code on how to create a download button that downloads a file on click.
-- [Stack Overflow](https://stackoverflow.com/questions/4216035/css-background-image-alt-attribute) for using a "Title" attribute as alternative for an alt attribute.
+- Sections of my own code form the Love Love Maths project that I have repurposed to suit my needs for this website: Incrementing score, Incrementing wrong answers, and Riddle selection.
+- [W3Schools](https://www.w3schools.com/howto/howto_js_validation_empty_input.asp) for the code on checking/validating user input.
+- [JSHint Documentation](https://jshint.com/docs/) for the "falls through" code comments to help JSHint ignore things in the code that it considers to be "sub-optimal" however are constructed in that specific way on purpose.
+- [Codingbeautydev](https://codingbeautydev.com/blog/javascript-check-if-string-contains-whitespace/) for the code to check for whitespaces in user input.
+- [Stack Overflow](https://stackoverflow.com/questions/10261986/how-to-detect-string-which-contains-only-spaces) for the code to check if a string contains only whitespaces.
+- [Bobby Hadz](https://bobbyhadz.com/blog/javascript-clear-input-field-after-submit) for the code to clear an input field upon submitting.
+- [Developer Mozxilla Webpage on parsing Integers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) for check the type of input that is received.
+- [Scaler](https://www.scaler.com/topics/javascript-disable-button/) for code to disable a button.
+- [Tutorials Teacher](https://www.tutorialsteacher.com/javascript/display-popup-message-in-javascript) for code to display pop-up for confirming a user action.
+- [Flaviocopes](https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/) for code to sort the leaderboard based on multiple keys in an array of objects.
+- [Linuxhint](https://linuxhint.com/javascript-count-up-timer/) for code for the timer.
 
 [Back to top](<#contents>)
 
 ## Media
-- All images are made and owned by FakeFairytale, the creator of this website.
+- [Flaticon & Author Freepik](https://www.flaticon.com/authors/freepik) for all riddle images.
 
 [Back to top](<#contents>)
 
 # Acknowledgements
-The FakeFairytale Battle Maps page was created as a project for the first milestone of the [Code Institute Full-Stack Development Course](https://codeinstitute.net/nl/full-stack-software-development-diploma/). During the learning process I've received excellent support and guidance from my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) who has been able to keep me focust, confident and made sure my project scope was realistic. I'd like to thank him for his guidance, as well as my wife, who took excellent care of me while I was crunching code.
+The Riddle me This quiz page was created as a project for the second milestone of the [Code Institute Full-Stack Development Course](https://codeinstitute.net/nl/full-stack-software-development-diploma/). During the learning process I've received excellent support and guidance from my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) who, dispite my own scheduling issues, has been able to keep me on track, showing nothing but support while being critical of the product, and ensured my project scope was realistic. I'd like to thank him for his guidance.
 
 [Back to top](<#contents>)
