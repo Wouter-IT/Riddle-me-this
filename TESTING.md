@@ -37,6 +37,7 @@ In the deployed version of the site the error below pops up. This is caused by g
 | Width       | 320px    | 360px   | 375px    | 390px         | 768px     | 820px    | 950 to 1300px   | 1920px          | 2560px          |
 
 During testing on a wide variety of screen sizes it was noted that the website degrades in quality in screens smaller than 320px and wider than 1440p. The website remains usuable and its structural integrity intact, but text becomes hard to read.
+Also very thin screens cause issues with elements overlapping, however, this is only the case in unconventional screen sizes or odd scaled webbrowser windows. AN example can be found in the unresolved bug section below.
 
 ## Browser Compatibility
 The testing process has been repeated over multiple browsers and the results are comparable for each Chrome, Mozilla, Safari, Edge. All features function as intended.
@@ -49,12 +50,12 @@ During development multiple bugs were encountered and resolved.
 
 - There was a bug that caused the array that selects numbers for the riddle selection to contain duplicate numbers. It was caused by a code typo that caused the code that was supposed to prevent this to only compare the new number to the 2nd number in the array, as opposed to comparing it to the entire array.
 
-- On smaller devices of <450px the quick nav buttons appeared on top of each other and aligned to their right side. The issue was caused by their container being too small in width to contain both buttons. Reducing the size of the buttons resolved the issue.
-
 ### Unresolved
 
-**Floating footer on larger screens**
-- The footer of the webpage has not been hard-coded to stick to the bottom of the screen as illustrated in the [images above](<#responsiveness>) in the responsiveness chapter. Using position: absolute bottom 0 wil in most cases resolve this issue. 
+**Text and element overlapping on thin screens**
+On unusually thin screens elements still overlap one another on occasion. This issue has been addressed for every common screen size with additional margin, however, in extreme cases still causes issues in responsiveness if a screen is made very thin. This is caused by using absolute positioning on a page and can in most cases be resolved by adjusting elements based on the viewport window height.
+
+![screenshot of overlap](assets/images/testing/overlap.jpg)
 
 ## Lighthouse Testing
 
