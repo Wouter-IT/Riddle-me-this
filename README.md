@@ -98,7 +98,7 @@ The color scheme for the website can be described as "striking" and originates f
 - Immediately tells the user on what site they are.
 - The logo image disappears on smaller devices as to not take up too much space when limited is available.
 
-![screenshot of logo](assets/images/readme/nav-bar.jpg)
+![screenshot of logo](assets/images/readme/feature-logo.png)
 
 [Back to top](<#contents>)
 
@@ -106,7 +106,7 @@ The color scheme for the website can be described as "striking" and originates f
 - Located just below the Logo is the introduction and greeting text. It explains the game and what is expected of the player. It is closed off with an enticing phrase to motivate the user to start playing.
 - The opening sentence is designed to immediately convey the core information of the game, so a user can decide straight away if they want to remain on the page or not.
 
-![screenshot of website hero image](assets/images/readme/hero.JPG)
+![screenshot of website introduction and greeting text](assets/images/readme/feature-introduction-greeting.png)
 
 [Back to top](<#contents>)
 
@@ -117,7 +117,7 @@ The color scheme for the website can be described as "striking" and originates f
 - The username is not allowed to be emppty or just a "space", and must require at least 1 character.
 - Is selected immediately upon opening the page so a user can provide a username without having to select the field first.
 
-![screenshot of the about section](assets/images/readme/about-section.jpg)
+![screenshot of the username inputfield and button](assets/images/readme/user-registration.png)
 
 [Back to top](<#contents>)
 
@@ -127,7 +127,7 @@ The color scheme for the website can be described as "striking" and originates f
 - Bumps off the lowest score after a new score has been achieved.
 - Currently, the leaderboard is not saved in a database and will reset upon refreshing the browser.
 
-![screenshot of sign-up form](assets/images/readme/sign-up-form.jpg)
+![screenshot of leaderboards](assets/images/readme/feature-leaderboard.png)
 
 [Back to top](<#contents>)
 
@@ -137,7 +137,7 @@ The color scheme for the website can be described as "striking" and originates f
 - Tracks the Username input from the user, their score which updates after each riddle completed successfully, and the amount of wrong answers provided.
 - Wrong answers tick up every time an incorrect input is given. However, the input field has to contain at least a character for it to register as "wrong".
 
-![screenshot of website footer](assets/images/readme/footer.jpg)
+![screenshot of player score and information box](assets/images/readme/feature-player-score.png)
 
 [Back to top](<#contents>)
 
@@ -147,7 +147,7 @@ The color scheme for the website can be described as "striking" and originates f
 - Often directly associated with the text of the riddle, however, not tied to the answer of the riddle as to not provide the player with an obvious clue.
 - Increases visual appeal of the game as wel as memorable riddles.
 
-![screenshot of confirmation message](assets/images/readme/confirmation.jpg)
+![screenshot of a riddle image](assets/images/readme/feature-riddle-image.png)
 
 [Back to top](<#contents>)
 
@@ -157,7 +157,7 @@ The color scheme for the website can be described as "striking" and originates f
 - A hint tells the player the type of answer that is required to solve the riddle. This to reduce complexity and along with the introduction text guide the players to apply a specific style of answers without additional unnecessary text.
 - About 25% of the riddles require a number as answer, the hint will help indicate that by asking for a number. 
 
-![screenshot of dungeondraft installation guide](assets/images/readme/tutorial.JPG)
+![screenshot of riddle text and hint](assets/images/readme/feature-riddle-text-hint.png)
 
 [Back to top](<#contents>)
 
@@ -168,7 +168,7 @@ The color scheme for the website can be described as "striking" and originates f
 - Checks the input of the player with the answer stored in the riddle object, if they match the player score 500 points. Additional points can be gained from answering a riddle as fast as possible, as explained in the next feature.
 - Is selected immediately upon starting the game/proceeding to the next riddle so a player can provide an answer without having to select the field first.
 
-![screenshot of the get started video](assets/images/readme/get-started.jpg)
+![screenshot of the answer input field](assets/images/readme/feature-riddle-answers.png)
 
 [Back to top](<#contents>)
 
@@ -178,7 +178,7 @@ The color scheme for the website can be described as "striking" and originates f
 - Provides additional points if answered within a specific time: Within 10 seconds adds 250 points, between 10 to 20 adds 200 points, between 20 and 40 adds 100, between 40 and 90 adds 50 points.
 - Besides pressure it also demotivates cheating behaviour by looking up answers to riddles and rewards being a skillsful riddle solver.
 
-![screenshot of map overview page](assets/images/readme/maps.jpg)
+![screenshot of the game timer](assets/images/readme/feature-riddle-timer.png)
 
 [Back to top](<#contents>)
 
@@ -189,7 +189,7 @@ The color scheme for the website can be described as "striking" and originates f
 - Skip allows a player to skip the riddle if they don't know the answer but do want to proceed with their run. Upon skipping the player receives an alert with the answer, and instruction to click on the next riddle button. The sumbit button is disabled and the Next riddle button enabled upon clicking skip to prevent scoring points from the answer of the riddle.
 - Forfeit allows the user to end their run. Upon clicking it verifies if this was the players intended action by use of an alert. If the player again confirms they desire to end the run they are brought back to the introduction screen. Their score is pushed to the leaderboard, and all player data is reset so the player can start a new run if they so desire. 
 
-![screenshot of map overview page](assets/images/readme/maps.jpg)
+![screenshot of the user input buttons](assets/images/readme/feature-riddle-buttons.png)
 
 [Back to top](<#contents>)
 
@@ -198,7 +198,7 @@ The color scheme for the website can be described as "striking" and originates f
 - Provides a credit to the creator of the images used for the game.
 - Contains a link to the page of the creator of the images.
 
-![screenshot of map overview page](assets/images/readme/maps.jpg)
+![screenshot of image credit](assets/images/readme/feature-riddle-image-credit.png)
 
 [Back to top](<#contents>)
 
