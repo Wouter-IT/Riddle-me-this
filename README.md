@@ -51,9 +51,12 @@ Let's find out!
 The Wireframes for Riddle me this were made using [Figma](https://www.figma.com/) as opposed to Balsamiq due to familiarity and experience that has been build up with Figma over the past months. There are wireframes for three separate devices; Full-Screen, Tablet and Mobile.
 The final design of the website varies slightly from the Figma wireframes in some regards as during the process it was discovered the design could be altered to reduce complexitry.
 
-![sketch design of FakeFairytale Battle maps website on computer.](assets/images/readme/computer-screen-adjusted.jpg)
+![sketch design of Riddle me This website on computer.](assets/images/readme/wireframe-desktop-1.png)
+![sketch design of Riddle me This website on computer.](assets/images/readme/wireframe-desktop-2.png)
 
-![sketch design of FakeFairytale Battle maps website on mobile.](assets/images/readme/mobile-adjusted.jpg)
+![sketch design of Riddle me This website on tablet.](assets/images/readme/wireframe-tablet.png)
+
+![sketch design of Riddle me This website on tablet.](assets/images/readme/wireframe-phone.png)
 
 [Back to top](<#contents>)
 
