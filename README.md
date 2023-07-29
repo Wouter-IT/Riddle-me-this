@@ -262,11 +262,13 @@ You can also create a local copy of the project using the following steps:
 
 ## Content
 - My Fonts from [Google Fonts](https://fonts.google.com/).
+- [Looka](https://looka.com/onboarding/) for Logo & Style inspiration. 
 - [Figma](https://www.figma.com/) for finding a maching font to Josefin Sans.
 - [Coolors.co](https://coolors.co/) for the color palatte.
 - Credits to the [Wawawoods project README by Ewan Colquhoun](https://github.com/EwanColquhoun/wawaswoods) to help create and structure my own README. This was a tremendous help.
 - Sections of my own code form the Love Love Maths project that I have repurposed to suit my needs for this website: Incrementing score, Incrementing wrong answers, and Riddle selection.
 - [W3Schools](https://www.w3schools.com/howto/howto_js_validation_empty_input.asp) for the code on checking/validating user input.
+- [W3Schools Dropshadow](https://www.w3schools.com/css/css3_shadows_box.asp ) for the code to apply a dropshadow to the boxes on screen.
 - [JSHint Documentation](https://jshint.com/docs/) for the "falls through" code comments to help JSHint ignore things in the code that it considers to be "sub-optimal" however are constructed in that specific way on purpose.
 - [Codingbeautydev](https://codingbeautydev.com/blog/javascript-check-if-string-contains-whitespace/) for the code to check for whitespaces in user input.
 - [Stack Overflow](https://stackoverflow.com/questions/10261986/how-to-detect-string-which-contains-only-spaces) for the code to check if a string contains only whitespaces.
